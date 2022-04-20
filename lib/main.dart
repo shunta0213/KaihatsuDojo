@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(),
+      //for debug
+      debugShowCheckedModeBanner: false,
       title: 'Authentication Test',
       home: const AuthPage(),
     );
@@ -32,17 +36,35 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     String email = "";
     String password = "";
-    String passCheckSentence = 'Password must include at least one upper case';
 
+    //
+    String passCheckSentence = 'Password must include at least one upper case';
     RegExp pattern = RegExp(r"(?=.*[a-z])(?=.*[A-Z])\w+");
     bool passCheck = false;
+
+    // Firebase Auth
+    final FirebaseAuth auth = FirebaseAuth.instance;
+
+    // Text Editing controller
+    final passController = TextEditingController();
+
+    void pathCheck() {
+      setState(() {
+        passCheck = pattern.hasMatch(password);
+        if (passCheck) {
+          passCheckSentence = 'Good PassWord';
+        } else {
+          passCheckSentence = 'Password must include at least one upper case';
+        }
+      });
+    }
 
     return Scaffold(
         body: Center(
             child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextField(
+        TextFormField(
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Enter Email',
@@ -51,7 +73,7 @@ class _AuthPageState extends State<AuthPage> {
             email = _email;
           },
         ),
-        TextField(
+        TextFormField(
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'PassWord',
@@ -60,20 +82,12 @@ class _AuthPageState extends State<AuthPage> {
           obscureText: true,
           onChanged: (String _password) {
             password = _password;
-            setState(() {
-              passCheck = pattern.hasMatch(password);
-              if (passCheck) {
-                passCheckSentence = '';
-              } else {
-                passCheckSentence =
-                'Password must include at least one upper case';
-              };
-              print(passCheck);
-              print(passCheckSentence);
-            });
+
+            // implement
+            pathCheck();
+            print(passCheckSentence);
           },
         ),
-        Text(passCheckSentence),
       ],
     )));
   }
