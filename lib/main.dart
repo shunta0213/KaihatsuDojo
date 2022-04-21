@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       //for debug
       debugShowCheckedModeBanner: false,
       title: 'Authentication Test',
-      home: const AuthPage(),
+      home: const LoginPage(),
     );
   }
 }
@@ -34,23 +33,18 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
-    String email = "";
-    String password = "";
+    String _email = "";
+    String _password = "";
+    bool passwordVeil = true;
 
     //
     String passCheckSentence = 'Password must include at least one upper case';
     RegExp pattern = RegExp(r"(?=.*[a-z])(?=.*[A-Z])\w+");
     bool passCheck = false;
 
-    // Firebase Auth
-    final FirebaseAuth auth = FirebaseAuth.instance;
-
-    // Text Editing controller
-    final passController = TextEditingController();
-
     void pathCheck() {
       setState(() {
-        passCheck = pattern.hasMatch(password);
+        passCheck = pattern.hasMatch(_password);
         if (passCheck) {
           passCheckSentence = 'Good PassWord';
         } else {
@@ -62,33 +56,104 @@ class _AuthPageState extends State<AuthPage> {
     return Scaffold(
         body: Center(
             child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextFormField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Enter Email',
-          ),
-          onChanged: (String _email) {
-            email = _email;
-          },
-        ),
-        TextFormField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'PassWord',
-          ),
-          // hide password
-          obscureText: true,
-          onChanged: (String _password) {
-            password = _password;
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter Email',
+                  ),
+                  onChanged: (String _emailTemp) {
+                    _email = _emailTemp;
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'PassWord',
+                  ),
+                  // hide password
+                  obscureText: passwordVeil,
+                  onChanged: (String _passwordTemp) {
+                    _password = _passwordTemp;
+                  },
+                ),
+                ElevatedButton(
+                    onPressed: () async {
+                      try {
+                        final FirebaseAuth auth = FirebaseAuth.instance;
+                        final UserCredential userCredential =
+                        await auth.createUserWithEmailAndPassword(
+                            email: _email, password: _password);
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'weak-password') {
+                          print('The password provided is too week.');
+                        } else if (e.code == 'email-already-in-use') {
+                          print('The account already exists for that mail.');
+                        }
+                      } catch (e) {
+                        print(e);
+                      }
+                    },
+                    child: const Text('SignUp')),
+              ],
+            )));
+  }
+}
 
-            // implement
-            pathCheck();
-            print(passCheckSentence);
-          },
-        ),
-      ],
-    )));
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String _email = "";
+  String _password = "";
+
+  final db = FirebaseAuth.instance;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Email',
+                ),
+                onChanged: (String _emailTemp) {
+                  _email = _emailTemp;
+                },
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Password',
+                ),
+                onChanged: (String _passwordTemp) {
+                  _password = _passwordTemp;
+                },
+              ),
+              ElevatedButton(onPressed: () async {
+                try {
+                  UserCredential signIn = await db
+                      .signInWithEmailAndPassword(
+                      email: _email, password: _password);
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'user-not-found') {
+                    print('No user found for that email');
+                  } else if (e.code == "wrong-password") {
+                    print('Wrong password provided for that user');
+                  }
+                }
+              }, child: Text('Signin')),
+            ],
+          ),
+        ));
   }
 }
