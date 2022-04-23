@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kaihatsu_test/main.dart';
 import 'package:provider/provider.dart';
 
-
 // ログイン
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,6 +16,19 @@ class _LoginPageState extends State<LoginPage> {
   String _password = "";
   String _infoText = "";
   bool _passwordVeil = true;
+  String _errorText = "";
+
+  void togglePassVile(bool? check) {
+    if (check == null) {
+      setState(() {
+        _passwordVeil = false;
+      });
+    } else {
+      setState(() {
+        _passwordVeil = check;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,17 +70,7 @@ class _LoginPageState extends State<LoginPage> {
               title: const Text('パスワードを表示'),
               controlAffinity: ListTileControlAffinity.leading,
               value: !_passwordVeil,
-              onChanged: (bool? e) {
-                if (e == null) {
-                  setState(() {
-                    _passwordVeil = false;
-                  });
-                } else {
-                  setState(() {
-                    _passwordVeil = !e;
-                  });
-                }
-              },
+              onChanged: (bool? e) => togglePassVile(e),
             ),
           ),
           Padding(
@@ -90,8 +92,21 @@ class _LoginPageState extends State<LoginPage> {
                         } catch (e) {
                           // Error
                           setState(() {
-                            _infoText = "ログインに失敗しました: ${e.toString()}";
+                            _errorText = e.toString();
                           });
+                          showDialog(
+                              context: context,
+                              builder: (_) {
+                                return AlertDialog(
+                                  title: const Text("ログインに失敗しました"),
+                                  content: Text(_errorText),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () => Navigator.pop(context),
+                                        child: const Text('OK'))
+                                  ],
+                                );
+                              });
                         }
                       },
                       child: Text('サインイン')),
@@ -103,16 +118,12 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text('登録')),
                 ]),
           ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: Text(_infoText),
-          ),
+          Text(_infoText),
         ],
       ),
     ));
   }
 }
-
 
 // 登録
 class SignUpPage extends StatefulWidget {
@@ -126,8 +137,8 @@ class _SignUpPageState extends State<SignUpPage> {
   String _email = "";
   String _password = "";
   String _password1 = "";
-  bool _passwordVeil = false;
   String _infoText = "";
+  bool _passwordVeil = false;
 
   @override
   Widget build(BuildContext context) {
@@ -135,49 +146,56 @@ class _SignUpPageState extends State<SignUpPage> {
     RegExp pattern = RegExp(r"(?=.*[a-z])(?=.*[A-Z])\w+");
     bool passCheckBool = true;
 
-    void togglePassVile (bool? check) {
-        if (check == null) {
-          setState(() {
-            _passwordVeil = false;
-          });
-        } else {
-          setState(() {
-            _passwordVeil = check;
-          });
-        }
-      }
-
-    void pathCheck() {
-      setState(() {
-        passCheckBool = pattern.hasMatch(_password);
+    void togglePassVile(bool? check) {
+      if (check == null) {
         setState(() {
-          if (_password != _password1) {
-            _infoText = "パスワードが一致しません";
-          } else if (!passCheckBool) {
-            _infoText = 'パスワードは、半角英小文字・大文字・数字を組み合わせて入力してください';
-          }
+          _passwordVeil = false;
         });
-      });
+      } else {
+        setState(() {
+          _passwordVeil = check;
+        });
+      }
     }
 
     void signUp() async {
-      try {
-        final FirebaseAuth auth = FirebaseAuth.instance;
-        final UserCredential userCredential = await auth
-            .createUserWithEmailAndPassword(email: _email, password: _password);
-        // ユーザー情報更新
-        userState.setUser(userCredential.user!);
-        await Navigator.of(context).pushReplacementNamed('/mainPage');
-      } on FirebaseAuthException catch (e) {
-        setState(() {
-          if (e.code == 'weak-password') {
-            _infoText = 'パスワードは、半角英小文字・大文字・数字を組み合わせて入力してください';
-          } else if (e.code == 'email-already-in-use') {
-            _infoText = 'このメールアドレスにはすでにアカウントが存在します';
+      if (_email == "") {
+        setState(() => _infoText = "メールアドレスを入力してください");
+      } else if (_password == "" || _password1 == "") {
+        setState(() => _infoText = "パスワードを入力してくさい");
+      } else {
+        if (_password != _password1) {
+          setState(() => _infoText = "パスワードが一致しません");
+        } else {
+          passCheckBool =
+              pattern.hasMatch(_password) && pattern.hasMatch(_password1);
+
+          if (!passCheckBool) {
+            setState(() => _infoText = "パスワードは、半角英小文字・大文字を組み合わせて入力してください");
+          } else {
+            try {
+              final FirebaseAuth auth = FirebaseAuth.instance;
+              final UserCredential userCredential =
+                  await auth.createUserWithEmailAndPassword(
+                      email: _email, password: _password);
+              // ユーザー情報更新
+              userState.setUser(userCredential.user!);
+              await Navigator.of(context).pushReplacementNamed('/mainPage');
+            } on FirebaseAuthException catch (e) {
+              setState(() {
+                if (e.code == 'weak-password') {
+                  _infoText = 'パスワードが短いです';
+                } else if (e.code == 'email-already-in-use') {
+                  _infoText = 'このメールアドレスにはすでにアカウントが存在します';
+                } else if (e.code == "invalid-email") {
+                  _infoText = "メールの形式を確かめてください";
+                } else {
+                  _infoText = "エラーが発生しました";
+                }
+              });
+            }
           }
-        });
-      } catch (e) {
-        print(e);
+        }
       }
     }
 
@@ -194,11 +212,15 @@ class _SignUpPageState extends State<SignUpPage> {
                 labelText: 'メールアドレス',
               ),
               onChanged: (String _emailTemp) {
+                if (_infoText != "") {
+                  setState(() {
+                    _infoText = "";
+                  });
+                }
                 _email = _emailTemp;
               },
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -206,14 +228,20 @@ class _SignUpPageState extends State<SignUpPage> {
                 Expanded(
                   flex: 1,
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'パスワード',
-                    ),
-                    // hide password
-                    obscureText: !_passwordVeil,
-                    onChanged: (String value) => _password = value,
-                  ),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'パスワード',
+                      ),
+                      // hide password
+                      obscureText: !_passwordVeil,
+                      onChanged: (String value) {
+                        if (_infoText != "") {
+                          setState(() {
+                            _infoText = "";
+                          });
+                        }
+                        _password = value;
+                      }),
                 ),
                 const SizedBox(
                   width: 8,
@@ -221,14 +249,20 @@ class _SignUpPageState extends State<SignUpPage> {
                 Expanded(
                   flex: 1,
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: '確認',
-                    ),
-                    // hide password
-                    obscureText: !_passwordVeil,
-                    onChanged: (String value) => _password1 = value,
-                  ),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: '確認',
+                      ),
+                      // hide password
+                      obscureText: !_passwordVeil,
+                      onChanged: (String value) {
+                        if (_infoText != "") {
+                          setState(() {
+                            _infoText = "";
+                          });
+                        }
+                        _password1 = value;
+                      }),
                 ),
               ],
             ),
@@ -245,12 +279,9 @@ class _SignUpPageState extends State<SignUpPage> {
           Text(_infoText),
           ElevatedButton(
               onPressed: () async {
-                pathCheck();
-                if (passCheckBool) {
-                  signUp();
-                }
+                signUp();
               },
-              child: const Text('SignUp')),
+              child: const Text('登録')),
         ],
       )),
       floatingActionButton: FloatingActionButton(
