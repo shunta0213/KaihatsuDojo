@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   bool _passwordVeil = true;
   String _errorText = "";
 
-  void togglePassVile(bool? check) {
+  void togglePassveil(bool? check) {
     if (check == null) {
       setState(() {
         _passwordVeil = false;
@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
               title: const Text('パスワードを表示'),
               controlAffinity: ListTileControlAffinity.leading,
               value: !_passwordVeil,
-              onChanged: (bool? e) => togglePassVile(e),
+              onChanged: (bool? e) => togglePassveil(e),
             ),
           ),
           Padding(
@@ -146,7 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
     RegExp pattern = RegExp(r"(?=.*[a-z])(?=.*[A-Z])\w+");
     bool passCheckBool = true;
 
-    void togglePassVile(bool? check) {
+    void togglePassveil(bool? check) {
       if (check == null) {
         setState(() {
           _passwordVeil = false;
@@ -273,7 +273,7 @@ class _SignUpPageState extends State<SignUpPage> {
               title: const Text('パスワードを表示'),
               controlAffinity: ListTileControlAffinity.leading,
               value: _passwordVeil,
-              onChanged: (bool? e) => togglePassVile(e),
+              onChanged: (bool? e) => togglePassveil(e),
             ),
           ),
           Text(_infoText),
