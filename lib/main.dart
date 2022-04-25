@@ -14,7 +14,6 @@ void main() async {
 
 class UserState extends ChangeNotifier {
   User? user;
-  final _auth = FirebaseAuth.instance;
 
   void setUser(User newUser) {
     user = newUser;

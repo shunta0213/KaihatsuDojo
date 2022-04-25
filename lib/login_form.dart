@@ -18,18 +18,6 @@ class _LoginPageState extends State<LoginPage> {
   bool _passwordVeil = true;
   String _errorText = "";
 
-  void togglePassVile(bool? check) {
-    if (check == null) {
-      setState(() {
-        _passwordVeil = false;
-      });
-    } else {
-      setState(() {
-        _passwordVeil = check;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final UserState userState = Provider.of<UserState>(context);
@@ -40,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
             child: TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -52,25 +40,26 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
             child: TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
                 labelText: 'パスワード',
+                suffixIcon: IconButton(
+                  tooltip: 'Show Password',
+                  icon: Icon(
+                      _passwordVeil ? Icons.visibility_off : Icons.visibility),
+                  onPressed: () {
+                    setState(() {
+                      _passwordVeil = !_passwordVeil;
+                    });
+                  },
+                ),
               ),
               obscureText: _passwordVeil,
               onChanged: (String value) {
                 _password = value;
               },
-            ),
-          ),
-          SizedBox(
-            width: 225,
-            child: CheckboxListTile(
-              title: const Text('パスワードを表示'),
-              controlAffinity: ListTileControlAffinity.leading,
-              value: !_passwordVeil,
-              onChanged: (bool? e) => togglePassVile(e),
             ),
           ),
           Padding(
@@ -143,58 +132,43 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final UserState userState = Provider.of<UserState>(context);
+    // Regular expression for password validation
     RegExp pattern = RegExp(r"(?=.*[a-z])(?=.*[A-Z])\w+");
     bool passCheckBool = true;
 
-    void togglePassVile(bool? check) {
-      if (check == null) {
-        setState(() {
-          _passwordVeil = false;
-        });
-      } else {
-        setState(() {
-          _passwordVeil = check;
-        });
-      }
-    }
-
     void signUp() async {
+      passCheckBool =
+          pattern.hasMatch(_password) && pattern.hasMatch(_password1);
+
       if (_email == "") {
         setState(() => _infoText = "メールアドレスを入力してください");
       } else if (_password == "" || _password1 == "") {
         setState(() => _infoText = "パスワードを入力してくさい");
+      } else if (_password != _password1) {
+        setState(() => _infoText = "パスワードが一致しません");
+      } else if (!passCheckBool) {
+        setState(() => _infoText = "パスワードは、半角英小文字・大文字を組み合わせて入力してください");
       } else {
-        if (_password != _password1) {
-          setState(() => _infoText = "パスワードが一致しません");
-        } else {
-          passCheckBool =
-              pattern.hasMatch(_password) && pattern.hasMatch(_password1);
-
-          if (!passCheckBool) {
-            setState(() => _infoText = "パスワードは、半角英小文字・大文字を組み合わせて入力してください");
-          } else {
-            try {
-              final FirebaseAuth auth = FirebaseAuth.instance;
-              final UserCredential userCredential =
-                  await auth.createUserWithEmailAndPassword(
-                      email: _email, password: _password);
-              // ユーザー情報更新
-              userState.setUser(userCredential.user!);
-              await Navigator.of(context).pushReplacementNamed('/mainPage');
-            } on FirebaseAuthException catch (e) {
-              setState(() {
-                if (e.code == 'weak-password') {
-                  _infoText = 'パスワードが短いです';
-                } else if (e.code == 'email-already-in-use') {
-                  _infoText = 'このメールアドレスにはすでにアカウントが存在します';
-                } else if (e.code == "invalid-email") {
-                  _infoText = "メールの形式を確かめてください";
-                } else {
-                  _infoText = "エラーが発生しました";
-                }
-              });
+        try {
+          final FirebaseAuth auth = FirebaseAuth.instance;
+          final UserCredential userCredential =
+              await auth.createUserWithEmailAndPassword(
+                  email: _email, password: _password);
+          // ユーザー情報更新
+          userState.setUser(userCredential.user!);
+          await Navigator.of(context).pushReplacementNamed('/mainPage');
+        } on FirebaseAuthException catch (e) {
+          setState(() {
+            if (e.code == 'weak-password') {
+              _infoText = 'パスワードが短いです';
+            } else if (e.code == 'email-already-in-use') {
+              _infoText = 'このメールアドレスにはすでにアカウントが存在します';
+            } else if (e.code == "invalid-email") {
+              _infoText = "メールの形式を確かめてください";
+            } else {
+              _infoText = "エラーが発生しました";
             }
-          }
+          });
         }
       }
     }
@@ -249,9 +223,20 @@ class _SignUpPageState extends State<SignUpPage> {
                 Expanded(
                   flex: 1,
                   child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: '確認',
+                        suffixIcon: IconButton(
+                          tooltip: 'Show Password',
+                          icon: Icon(_passwordVeil
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          onPressed: () {
+                            setState(() {
+                              _passwordVeil = !_passwordVeil;
+                            });
+                          },
+                        ),
                       ),
                       // hide password
                       obscureText: !_passwordVeil,
@@ -265,15 +250,6 @@ class _SignUpPageState extends State<SignUpPage> {
                       }),
                 ),
               ],
-            ),
-          ),
-          SizedBox(
-            width: 225,
-            child: CheckboxListTile(
-              title: const Text('パスワードを表示'),
-              controlAffinity: ListTileControlAffinity.leading,
-              value: _passwordVeil,
-              onChanged: (bool? e) => togglePassVile(e),
             ),
           ),
           Text(_infoText),
