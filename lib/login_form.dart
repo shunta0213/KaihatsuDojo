@@ -136,7 +136,7 @@ class _SignUpPageState extends State<SignUpPage> {
     RegExp pattern = RegExp(r"(?=.*[a-z])(?=.*[A-Z])\w+");
     bool passCheckBool = true;
 
-    void signUp() async {
+    void signUp() async {// if password contains at least one lower case and upper case, return true
       passCheckBool =
           pattern.hasMatch(_password) && pattern.hasMatch(_password1);
 
