@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kaihatsu.kaihatsu_test">
+    package="com.kaihatsu.kaihatsudojo">
    <application
         android:label="kaihatsu_test"
         android:name="${applicationName}"

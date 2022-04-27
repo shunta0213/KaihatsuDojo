@@ -1,4 +1,4 @@
-package com.kaihatsu.kaihatsu_test
+package com.kaihatsu.kaihatsudojo
 
 import io.flutter.embedding.android.FlutterActivity
 
