@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class TopPage extends StatefulWidget {
@@ -13,6 +15,10 @@ class _TopPageState extends State<TopPage> {
 
   @override
   Widget build(BuildContext context) {
+    // For Firebase Auth and Firestore
+    final auth = FirebaseAuth.instance;
+    final db = FirebaseFirestore.instance;
+    final uid = auth.currentUser!.uid;
 
     // For Bottom Bar
     bool _currentIndexColor = true;
@@ -46,7 +52,7 @@ class _TopPageState extends State<TopPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Home'),
+          Text(uid),
         ],
       ),
 
