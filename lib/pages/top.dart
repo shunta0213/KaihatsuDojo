@@ -43,12 +43,15 @@ class _MainPageState extends State<MainPage> {
     ];
 
     return Scaffold(
+      // 基本はここに書いていく
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Home'),
         ],
       ),
+
+      // BottomBar部分
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
@@ -60,7 +63,7 @@ class _MainPageState extends State<MainPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),
     );

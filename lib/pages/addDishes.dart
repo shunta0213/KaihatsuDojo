@@ -13,17 +13,20 @@ class _AddDishesState extends State<AddDishes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // 基本はここに書いていく
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('AddDishes'),
         ],
       ),
+
+      // Xボタン
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
-        padding: EdgeInsets.only(bottom: 10.0),
+        padding: const EdgeInsets.only(bottom: 10.0),
         child: FloatingActionButton(
-          child: Icon(Icons.clear),
+          child: const Icon(Icons.clear),
           onPressed: () => Navigator.of(context).pop() ,
         ),
       ),

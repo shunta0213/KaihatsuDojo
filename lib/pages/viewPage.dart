@@ -23,12 +23,15 @@ class _ViewPageState extends State<ViewPage> {
       }
     });
     return Scaffold(
+      // 基本ここに書いていく
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Page2'),
         ],
       ),
+
+      // BottomBar 部分
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
@@ -54,7 +57,7 @@ class _ViewPageState extends State<ViewPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),
     );
