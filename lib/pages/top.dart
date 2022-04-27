@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
-import 'package:kaihatsudojo/pages/home.dart';
 import 'package:kaihatsudojo/pages/viewPage.dart';
 import 'package:kaihatsudojo/pages/addDishes.dart';
 
@@ -13,54 +11,57 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
-  Icon _homeIcon = const Icon(Icons.home);
-
-  List<Widget> _date = [Home(), ViewPage()];
-
-  void _onTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  void iconChange() {
-    setState(() {
-      if (_selectedIndex == 0) {
-         _homeIcon = const Icon(Icons.home_outlined, size: 30,);
-      } else {
-         _homeIcon = const Icon(Icons.home, size: 30,);
-      }
-    });
-  }
+  int _currentIndex = 0;
+  List<String> pages = ['/mainPage', '/viewPage'];
 
   @override
   Widget build(BuildContext context) {
+    bool _currentIndexColor = true;
 
-    return CupertinoTabScaffold(
-      tabBuilder: (context, index) {
-        return CupertinoTabView(
-          builder: (context) {
-            return _date[index];
-          },
-        );
-      },
-      tabBar: CupertinoTabBar(
-        height: 50,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: _homeIcon,
-          ),
-          BottomNavigationBarItem(
-              label: 'List',
-              icon: Icon(
-                Icons.list_alt_rounded,
-                size: 30,
-              )),
+    setState(() {
+      if (_currentIndex == 0) {
+        _currentIndexColor = true;
+      } else {
+        _currentIndexColor = false;
+      }
+    });
+    List<BottomNavigationBarItem> barItem = [
+      BottomNavigationBarItem(
+          label: 'home',
+          icon: Icon(
+            Icons.home,
+            size: 30,
+            color: _currentIndexColor ? Colors.orange : Colors.black,
+          )),
+      BottomNavigationBarItem(
+          label: 'list',
+          icon: Icon(
+            Icons.list_alt_rounded,
+            size: 30,
+            color: !_currentIndexColor ? Colors.orange : Colors.black,
+          ))
+    ];
+
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Home'),
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onTapped,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          _currentIndex = index;
+          print(_currentIndex);
+          Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+        },
+        items: barItem,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),
     );
   }
