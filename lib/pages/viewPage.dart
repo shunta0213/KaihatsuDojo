@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ViewPage extends StatefulWidget {
@@ -9,12 +8,13 @@ class ViewPage extends StatefulWidget {
 }
 
 class _ViewPageState extends State<ViewPage> {
-  int _currentIndex = 1;
-  List<String> pages = ['/mainPage', '/viewPage'];
-  bool _currentIndexColor = true;
-
   @override
   Widget build(BuildContext context) {
+    // For BottomBar
+    int _currentIndex = 1;
+    List<String> pages = ['/mainPage', '/viewPage'];
+    bool _currentIndexColor = true;
+
     setState(() {
       if (_currentIndex == 0) {
         _currentIndexColor = true;
@@ -22,6 +22,8 @@ class _ViewPageState extends State<ViewPage> {
         _currentIndexColor = false;
       }
     });
+    //end
+
     return Scaffold(
       // 基本ここに書いていく
       body: Column(
@@ -30,6 +32,7 @@ class _ViewPageState extends State<ViewPage> {
           Text('Page2'),
         ],
       ),
+
 
       // BottomBar 部分
       bottomNavigationBar: BottomNavigationBar(

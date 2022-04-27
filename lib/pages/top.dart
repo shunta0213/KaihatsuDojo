@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 
-import 'package:kaihatsudojo/pages/viewPage.dart';
-import 'package:kaihatsudojo/pages/addDishes.dart';
-
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class TopPage extends StatefulWidget {
+  const TopPage({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<TopPage> createState() => _TopPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _TopPageState extends State<TopPage> {
   int _currentIndex = 0;
-  List<String> pages = ['/mainPage', '/viewPage'];
+  List<String> pages = ['/TopPage', '/viewPage'];
 
   @override
   Widget build(BuildContext context) {
-    bool _currentIndexColor = true;
 
+    // For Bottom Bar
+    bool _currentIndexColor = true;
     setState(() {
       if (_currentIndex == 0) {
         _currentIndexColor = true;
@@ -41,6 +39,7 @@ class _MainPageState extends State<MainPage> {
             color: !_currentIndexColor ? Colors.orange : Colors.black,
           ))
     ];
+    // end
 
     return Scaffold(
       // 基本はここに書いていく
@@ -56,7 +55,6 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _currentIndex,
         onTap: (int index) {
           _currentIndex = index;
-          print(_currentIndex);
           Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
         },
         items: barItem,

@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
       ),
       routes: {
-        '/mainPage': (BuildContext context) => const MainPage(),
+        '/mainPage': (BuildContext context) => const TopPage(),
         '/addDishes': (BuildContext context) => const AddDishes(),
         '/viewPage': (BuildContext context) => const ViewPage(),
       },
-      home: const MainPage(),
+      home: const TopPage(),
     );
   }
 }
