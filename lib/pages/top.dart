@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:kaihatsudojo/pages/home.dart';
 import 'package:kaihatsudojo/pages/viewPage.dart';
+import 'package:kaihatsudojo/pages/addDishes.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -11,21 +12,31 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-
-
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
+  Icon _homeIcon = const Icon(Icons.home);
+
   List<Widget> _date = [Home(), ViewPage()];
 
-  void _onTapped (int index) {
+  void _onTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
+  void iconChange() {
+    setState(() {
+      if (_selectedIndex == 0) {
+         _homeIcon = const Icon(Icons.home_outlined, size: 30,);
+      } else {
+         _homeIcon = const Icon(Icons.home, size: 30,);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+
     return CupertinoTabScaffold(
       tabBuilder: (context, index) {
         return CupertinoTabView(
@@ -35,21 +46,17 @@ class _MainPageState extends State<MainPage> {
         );
       },
       tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem>[
+        height: 50,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             label: 'Home',
-            icon: Icon(
-              Icons.home_filled,
-              size: 30,
-              color: Colors.black,
-            ),
+            icon: _homeIcon,
           ),
           BottomNavigationBarItem(
               label: 'List',
               icon: Icon(
                 Icons.list_alt_rounded,
                 size: 30,
-                color: Colors.black,
               )),
         ],
         currentIndex: _selectedIndex,
