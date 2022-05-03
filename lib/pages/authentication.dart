@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kaihatsudojo/main.dart';
+import 'package:kaihatsudojo/preparation/decoration.dart';
 import 'package:provider/provider.dart';
+import 'package:kaihatsudojo/preparation/color.dart';
 
 // ログイン
 class LoginPage extends StatefulWidget {
@@ -24,51 +26,69 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
         body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'メール',
-              ),
-              onChanged: (String value) {
-                _email = value;
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
-            child: TextFormField(
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                labelText: 'パスワード',
-                suffixIcon: IconButton(
-                  tooltip: 'Show Password',
-                  icon: Icon(
-                      _passwordVeil ? Icons.visibility_off : Icons.visibility),
-                  onPressed: () {
-                    setState(() {
-                      _passwordVeil = !_passwordVeil;
-                    });
-                  },
+      child: Container(
+        decoration: kLoginGradation,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            kLoginCircle,
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.45)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.45)),
+                  border: OutlineInputBorder(),
+                  labelText: 'メール',
+                  labelStyle: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
+                onChanged: (String value) {
+                  _email = value;
+                },
               ),
-              obscureText: _passwordVeil,
-              onChanged: (String value) {
-                _password = value;
-              },
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ElevatedButton(
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.45)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.45)),
+                  border: const OutlineInputBorder(),
+                  labelText: 'パスワード',
+                  labelStyle: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                  suffixIcon: IconButton(
+                    tooltip: 'Show Password',
+                    icon: Icon(_passwordVeil
+                        ? Icons.visibility_off
+                        : Icons.visibility),
+                    onPressed: () {
+                      setState(() {
+                        _passwordVeil = !_passwordVeil;
+                      });
+                    },
+                  ),
+                ),
+                obscureText: _passwordVeil,
+                onChanged: (String value) {
+                  _password = value;
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ElevatedButton(
                       onPressed: () async {
                         try {
                           UserCredential signIn = await FirebaseAuth.instance
@@ -98,17 +118,45 @@ class _LoginPageState extends State<LoginPage> {
                               });
                         }
                       },
-                      child: Text('サインイン')),
-                  const SizedBox(width: 20),
-                  ElevatedButton(
+                      child: Text(
+                        'サインイン',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Colors.black54,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.only(
+                              left: 30, right: 30, top: 15, bottom: 15),
+                          primary: kMiddle2OrangeColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          )),
+                    ),
+                    const SizedBox(width: 20),
+                    ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).pushNamed('/signUpPage');
                       },
-                      child: Text('登録')),
-                ]),
-          ),
-          Text(_infoText),
-        ],
+                      child: Text(
+                        '登録',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.black54),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.only(
+                            left: 30, right: 30, top: 15, bottom: 15),
+                        primary: kMiddle2OrangeColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                    ),
+                  ]),
+            ),
+            Text(_infoText),
+          ],
+        ),
       ),
     ));
   }
@@ -176,96 +224,144 @@ class _SignUpPageState extends State<SignUpPage> {
 
     return Scaffold(
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'メールアドレス',
+          child: Container(
+        decoration: kLoginGradation,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            kLoginCircle,
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.45)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 1.45)),
+                  border: OutlineInputBorder(),
+                  labelText: 'メールアドレス',
+                  labelStyle: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                onChanged: (String _emailTemp) {
+                  if (_infoText != "") {
+                    setState(() {
+                      _infoText = "";
+                    });
+                  }
+                  _email = _emailTemp;
+                },
               ),
-              onChanged: (String _emailTemp) {
-                if (_infoText != "") {
-                  setState(() {
-                    _infoText = "";
-                  });
-                }
-                _email = _emailTemp;
-              },
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: TextFormField(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'パスワード',
-                      ),
-                      // hide password
-                      obscureText: !_passwordVeil,
-                      onChanged: (String value) {
-                        if (_infoText != "") {
-                          setState(() {
-                            _infoText = "";
-                          });
-                        }
-                        _password = value;
-                      }),
-                ),
-                const SizedBox(
-                  width: 8,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: '確認',
-                        suffixIcon: IconButton(
-                          tooltip: 'Show Password',
-                          icon: Icon(_passwordVeil
-                              ? Icons.visibility_off
-                              : Icons.visibility),
-                          onPressed: () {
-                            setState(() {
-                              _passwordVeil = !_passwordVeil;
-                            });
-                          },
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: TextFormField(
+                        decoration: const InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.45)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.45)),
+                          border: OutlineInputBorder(),
+                          labelText: 'パスワード',
+                          labelStyle: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      // hide password
-                      obscureText: !_passwordVeil,
-                      onChanged: (String value) {
-                        if (_infoText != "") {
-                          setState(() {
-                            _infoText = "";
-                          });
-                        }
-                        _password1 = value;
-                      }),
-                ),
-              ],
+                        // hide password
+                        obscureText: !_passwordVeil,
+                        onChanged: (String value) {
+                          if (_infoText != "") {
+                            setState(() {
+                              _infoText = "";
+                            });
+                          }
+                          _password = value;
+                        }),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: TextFormField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.45)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.45)),
+                          border: OutlineInputBorder(),
+                          labelText: '確認',
+                          labelStyle: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                          suffixIcon: IconButton(
+                            tooltip: 'Show Password',
+                            icon: Icon(_passwordVeil
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                _passwordVeil = !_passwordVeil;
+                              });
+                            },
+                          ),
+                        ),
+                        // hide password
+                        obscureText: !_passwordVeil,
+                        onChanged: (String value) {
+                          if (_infoText != "") {
+                            setState(() {
+                              _infoText = "";
+                            });
+                          }
+                          _password1 = value;
+                        }),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Text(_infoText),
-          ElevatedButton(
+            Text(_infoText),
+            ElevatedButton(
               onPressed: () async {
                 signUp();
               },
-              child: const Text('登録')),
-        ],
+              child: const Text(
+                '登録',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: Colors.black54,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding:
+                    EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
+                primary: kMiddle2OrangeColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+              ),
+            ),
+          ],
+        ),
       )),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: kFABButtonColor,
         onPressed: () {
           Navigator.of(context).pop();
         },
-        child: const Icon(Icons.back_hand),
+        child: const Icon(
+          Icons.arrow_back,
+          color: Colors.black87,
+          size: 34,
+        ),
       ),
     );
   }

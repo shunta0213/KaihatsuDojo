@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/preparation/color.dart';
+import 'package:kaihatsudojo/preparation/header.dart';
 
 class TopPage extends StatefulWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -35,25 +37,36 @@ class _TopPageState extends State<TopPage> {
           icon: Icon(
             Icons.home,
             size: 30,
-            color: _currentIndexColor ? Colors.orange : Colors.black,
+            color: _currentIndexColor ? Colors.amber : Colors.grey,
           )),
       BottomNavigationBarItem(
           label: 'list',
           icon: Icon(
             Icons.list_alt_rounded,
             size: 30,
-            color: !_currentIndexColor ? Colors.orange : Colors.black,
+            color: !_currentIndexColor ? Colors.amber : Colors.grey,
           ))
     ];
     // end
 
     return Scaffold(
       // 基本はここに書いていく
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(uid),
-        ],
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     Text(uid),
+      body: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          color: Color(0xFFFFAFAFA),
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              beauty_header(),
+            ],
+          ),
+        ),
       ),
 
       // BottomBar部分
@@ -67,7 +80,12 @@ class _TopPageState extends State<TopPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        elevation: 3,
+        backgroundColor: kFABButtonColor,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),
     );
