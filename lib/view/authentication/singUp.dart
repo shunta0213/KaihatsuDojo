@@ -174,7 +174,11 @@ class SignUpPage extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.amber,
         onPressed: () => Navigator.of(context).pop(),
-        child: const Icon(Icons.arrow_back),
+        child: const Icon(
+          Icons.arrow_back,
+          color: Colors.white70,
+          size: 34,
+        ),
       ),
     );
   }

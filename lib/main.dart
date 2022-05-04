@@ -22,19 +22,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        // for debug
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.orange,
-        ),
-        routes: {
-          '/loginPage': (context) =>  const LoginPage(),
-          '/signUpPage': (context) =>  const SignUpPage(),
-          '/mainPage': (BuildContext context) => const TopPage(),
-          '/addDishes': (BuildContext context) => const AddDishes(),
-          '/viewPage': (BuildContext context) => const ViewPage(),
-        },
-        home: const LoginPage(),
-      );
+      // for debug
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
+      routes: {
+        '/loginPage': (context) => const LoginPage(),
+        '/signUpPage': (context) => const SignUpPage(),
+        '/mainPage': (BuildContext context) => const TopPage(),
+        '/addDishes': (BuildContext context) => const AddDishes(),
+        '/viewPage': (BuildContext context) => const ViewPage(),
+      },
+      home: const LoginPage(),
+    );
   }
 }
