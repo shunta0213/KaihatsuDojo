@@ -17,7 +17,7 @@ void signUp(BuildContext context, WidgetRef ref,  String _password, String _pass
   } else if (_password == "" || _password1 == "") {
     infoTextState.update((state) => state = "パスワードを入力してくさい");
   } else if (_password != _password1) {
-    infoTextState.update((state) => state = "パスワードを入力してくさい");
+    infoTextState.update((state) => state = "パスワードが一致しません");
   } else if (!passCheckBool) {
     infoTextState.update((state) => state = "パスワードは、半角英小文字・大文字を組み合わせて入力してください");
   } else {

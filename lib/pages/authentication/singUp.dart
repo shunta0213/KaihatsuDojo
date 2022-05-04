@@ -3,21 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:kaihatsudojo/model/authenticationData/authenticationData.dart';
 import 'package:kaihatsudojo/model/authenticationData/singUpData.dart';
-import 'package:kaihatsudojo/model/authenticationData/singInData.dart';
-
 
 class SignUpPage extends ConsumerWidget {
-  String _email = "";
-  String _password = "";
-  String _password1 = "";
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Regular expression for password validation
     // Provider
     final infoText = ref.watch<String>(signUpTextProvider);
     final infoTextState = ref.read(signUpTextProvider.state);
     final bool passwordVeil = ref.watch<bool>(passwordVeilProvider);
+
+    String _email = "";
+    String _password = "";
+    String _password1 = "";
 
     return Scaffold(
       body: Center(
@@ -66,7 +65,7 @@ class SignUpPage extends ConsumerWidget {
                   flex: 1,
                   child: TextFormField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         labelText: '確認',
                         suffixIcon: IconButton(
                           tooltip: 'Show Password',
@@ -74,7 +73,9 @@ class SignUpPage extends ConsumerWidget {
                               ? Icons.visibility_off
                               : Icons.visibility),
                           onPressed: () {
-                            ref.read(passwordVeilProvider.state).update((state) => state = !state);
+                            ref
+                                .read(passwordVeilProvider.state)
+                                .update((state) => state = !state);
                           },
                         ),
                       ),
@@ -92,17 +93,14 @@ class SignUpPage extends ConsumerWidget {
           ),
           Text(infoText),
           ElevatedButton(
-              onPressed: () async {
-                signUp(context, ref, _password, _password1, _email);
-              },
+              onPressed: () async =>
+                  signUp(context, ref, _password, _password1, _email),
               child: const Text('登録')),
         ],
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
+        onPressed: () => Navigator.of(context).pop(),
         child: const Icon(Icons.arrow_back),
       ),
     );
