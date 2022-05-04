@@ -51,29 +51,28 @@ class _TopPageState extends State<TopPage> {
     // end
 
     return Scaffold(
-      // 基本はここに書いていく
-      //下のやついったん置いておかせてください
-      // body: Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: [
-      //     Text(uid),
-      //   ],
-      // ),
-
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Color(0xFFFFAFAFA),
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              beauty_header(),
-              Text(uid), //ここいじりました。沼澤
-            ],
-          ),
-        ),
+      //基本はここに書いていく
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(uid),
+        ],
       ),
+
+      // body: Center(
+      //   child: Container(
+      //     width: MediaQuery.of(context).size.width,
+      //     height: MediaQuery.of(context).size.height,
+      //     color: Color(0xFFFFAFAFA),
+      //     child: Stack(
+      //       fit: StackFit.expand,
+      //       children: <Widget>[
+      //         beauty_header(),
+      //         Text(uid), //ここいじりました。沼澤
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
       // BottomBar部分
       bottomNavigationBar: BottomNavigationBar(

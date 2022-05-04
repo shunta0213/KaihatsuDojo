@@ -29,35 +29,34 @@ class _ViewPageState extends State<ViewPage> {
 
     return Scaffold(
       // 基本ここに書いていく
-      //ここもいじらせてもらいます。沼澤
-      // body: Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: [
-      //     Text('Page2'),
-      //   ],
-      // ),
-      body: Center(
-        child: Container(
-          //白の部分
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Color(0xFFFFAFAFA),
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              //背景
-              beauty_header(),
-              // 基本ここに書いていく
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Page2'),
-                ],
-              ),
-            ],
-          ),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Page2'),
+        ],
       ),
+      // body: Center(
+      //   child: Container(
+      //     //白の部分
+      //     width: MediaQuery.of(context).size.width,
+      //     height: MediaQuery.of(context).size.height,
+      //     color: Color(0xFFFFAFAFA),
+      //     child: Stack(
+      //       fit: StackFit.expand,
+      //       children: <Widget>[
+      //         //背景
+      //         beauty_header(),
+      //         // 基本ここに書いていく
+      //         Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             Text('Page2'),
+      //           ],
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
       // BottomBar 部分
       bottomNavigationBar: BottomNavigationBar(
