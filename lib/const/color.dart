@@ -14,3 +14,5 @@ const kLightOrangeColor = Color(0xFFFFF0B2);
 const kVeryLightGreyColor = Color(0xFFFFAFAFA); //あれ？
 const kMiddleOrangeColor = Color(0xFFFFB74D);
 const kMiddle2OrangeColor = Color(0xFFFFCC80);
+
+const ktestcolor = Colors.yellowAccent;
