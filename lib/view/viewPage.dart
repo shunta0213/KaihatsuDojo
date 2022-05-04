@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/const/color.dart';
+import 'package:kaihatsudojo/const/header.dart';
 
 class ViewPage extends StatefulWidget {
-  const ViewPage ({Key? key}) : super(key: key);
+  const ViewPage({Key? key}) : super(key: key);
 
   @override
   State<ViewPage> createState() => _ViewPageState();
@@ -306,7 +308,28 @@ class _ViewPageState extends State<ViewPage> {
             ),
           ]
       ),
-
+      // body: Center(
+      //   child: Container(
+      //     //白の部分
+      //     width: MediaQuery.of(context).size.width,
+      //     height: MediaQuery.of(context).size.height,
+      //     color: Color(0xFFFFAFAFA),
+      //     child: Stack(
+      //       fit: StackFit.expand,
+      //       children: <Widget>[
+      //         //背景
+      //         beauty_header(),
+      //         // 基本ここに書いていく
+      //         Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             Text('Page2'),
+      //           ],
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
 
       // BottomBar 部分
@@ -316,26 +339,56 @@ class _ViewPageState extends State<ViewPage> {
           _currentIndex = index;
           Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
         },
-        items:  <BottomNavigationBarItem>[
+        //   Navigator.push(
+        //     context,
+        //     //   MaterialPageRoute(
+        //     //     builder: (context) {
+        //     //       return MyApp2();
+        //     //     },
+        //     //   ),
+        //     // );
+        //     PageRouteBuilder(
+        //       transitionDuration: Duration(seconds: 0),
+        //       transitionsBuilder: (context, animation, animationTime, child) {
+        //         // animation = CurvedAnimation(
+        //         //     parent: animation, curve: Curves.easeInCirc);
+        //         return ScaleTransition(
+        //           scale: animation,
+        //           alignment: Alignment.center,
+        //           child: child,
+        //         );
+        //       },
+        //       pageBuilder: (context, animation, animationTime) {
+        //         return TopPage();
+        //       },
+        //     ),
+        //   );
+        // },
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               label: 'home',
               icon: Icon(
                 Icons.home,
                 size: 30,
-                color: _currentIndexColor ? Colors.orange :Colors.black,
+                color: _currentIndexColor ? kFABButtonColor : Colors.grey,
               )),
           BottomNavigationBarItem(
               label: 'list',
               icon: Icon(
                 Icons.list_alt_rounded,
                 size: 30,
-                color: !_currentIndexColor ? Colors.orange :Colors.black,
+                color: !_currentIndexColor ? kFABButtonColor : Colors.grey,
               ))
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        backgroundColor: kFABButtonColor,
+        elevation: 2,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),
     );
