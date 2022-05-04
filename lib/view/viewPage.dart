@@ -25,13 +25,288 @@ class _ViewPageState extends State<ViewPage> {
     //end
 
     return Scaffold(
-      // 基本ここに書いていく
+      backgroundColor: Colors.deepOrange[100],
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Page2'),
-        ],
+          children: <Widget> [
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://stockmaterial.net/wp/wp-content/uploads/img/animal_cow02_01.png',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('牛肉');
+                    },
+                  ),
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://stockmaterial.net/wp/wp-content/uploads/img/animal_pig01_01.png',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('豚肉');
+                    },
+                  )
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://stockmaterial.net/wp/wp-content/uploads/img/animal_chicken01_01.png',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('鶏肉');
+                    },
+                  ),
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://stockmaterial.net/wp/wp-content/uploads/img/animal_red_snapper01_01.png',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('魚');
+                    },
+                  )
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://stockmaterial.net/wp/wp-content/uploads/img/food_breakfast01_01.png',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('副菜');
+                    },
+                  ),
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            '',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('スープ');
+                    },
+                  )
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://stockmaterial.net/wp/wp-content/uploads/img/animal_cow02_01.png',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('麺類');
+                    },
+                  ),
+                  GestureDetector(
+                    child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFFFF59D), //始まりの色
+                            Color(0xFFFFF9C4), //終わりの色
+                          ],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFFFF9C4), //色
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://stockmaterial.net/wp/wp-content/uploads/img/animal_pig01_01.png',
+                          ),
+                        ),
+                      ),
+                      margin: const EdgeInsets.all(40),
+                    ),
+                    onTap: () {
+                      print('その他');
+                    },
+                  )
+                ]
+            ),
+          ]
       ),
+
 
 
       // BottomBar 部分
