@@ -3,7 +3,7 @@
 branchの名前
 /自分の名前/任意の文字
 
-ex) /shunta/authentication など。
+ex) shunta/authentication など。
 
 
 ## Getting Started
