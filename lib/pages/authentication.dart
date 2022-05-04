@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                   focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white, width: 1.45)),
                   border: OutlineInputBorder(),
-                  labelText: 'メール',
+                  labelText: 'メールアドレス',
                   labelStyle: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
@@ -121,14 +121,14 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         'サインイン',
                         style: TextStyle(
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w500,
                           color: Colors.black54,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.only(
                               left: 30, right: 30, top: 15, bottom: 15),
-                          primary: kMiddle2OrangeColor,
+                          primary: kOrangeColor1,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                           )),
@@ -139,14 +139,14 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.of(context).pushNamed('/signUpPage');
                       },
                       child: Text(
-                        '登録',
+                        '新規登録',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black54),
+                            fontWeight: FontWeight.w500, color: Colors.black54),
                       ),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.only(
-                            left: 30, right: 30, top: 15, bottom: 15),
-                        primary: kMiddle2OrangeColor,
+                            left: 36, right: 36, top: 15, bottom: 15),
+                        primary: kOrangeColor1,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
@@ -336,14 +336,15 @@ class _SignUpPageState extends State<SignUpPage> {
               child: const Text(
                 '登録',
                 style: TextStyle(
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w500,
                   color: Colors.black54,
+                  fontSize: 17,
                 ),
               ),
               style: ElevatedButton.styleFrom(
                 padding:
-                    EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
-                primary: kMiddle2OrangeColor,
+                    EdgeInsets.only(left: 60, right: 60, top: 15, bottom: 15),
+                primary: kOrangeColor1,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),
@@ -359,7 +360,7 @@ class _SignUpPageState extends State<SignUpPage> {
         },
         child: const Icon(
           Icons.arrow_back,
-          color: Colors.black87,
+          color: Colors.white70,
           size: 34,
         ),
       ),

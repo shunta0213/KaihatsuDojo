@@ -7,6 +7,7 @@ import 'package:kaihatsudojo/pages/top.dart';
 import 'package:kaihatsudojo/pages/addDishes.dart';
 import 'package:kaihatsudojo/pages/viewPage.dart';
 import 'package:kaihatsudojo/pages/authentication.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,21 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<UserState>(
       create: (context) => UserState(),
       child: MaterialApp(
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case '/viewPage':
+              return PageTransition(
+                child: const ViewPage(),
+                type: PageTransitionType.fade,
+                duration: Duration(seconds: 5),
+                reverseDuration: Duration(seconds: 5),
+              );
+              break;
+            default:
+              return null;
+          }
+        },
+
         // for debug
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

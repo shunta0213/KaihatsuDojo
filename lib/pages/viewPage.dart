@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/preparation/color.dart';
 import 'package:kaihatsudojo/preparation/header.dart';
+import 'top.dart';
 
 class ViewPage extends StatefulWidget {
   const ViewPage({Key? key}) : super(key: key);
@@ -54,8 +55,32 @@ class _ViewPageState extends State<ViewPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
-          _currentIndex = index;
-          Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+          // _currentIndex = index;
+          // Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+          Navigator.push(
+            context,
+            //   MaterialPageRoute(
+            //     builder: (context) {
+            //       return MyApp2();
+            //     },
+            //   ),
+            // );
+            PageRouteBuilder(
+              transitionDuration: Duration(seconds: 0),
+              transitionsBuilder: (context, animation, animationTime, child) {
+                // animation = CurvedAnimation(
+                //     parent: animation, curve: Curves.easeInCirc);
+                return ScaleTransition(
+                  scale: animation,
+                  alignment: Alignment.center,
+                  child: child,
+                );
+              },
+              pageBuilder: (context, animation, animationTime) {
+                return TopPage();
+              },
+            ),
+          );
         },
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
