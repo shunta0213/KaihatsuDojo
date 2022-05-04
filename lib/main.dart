@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:kaihatsudojo/pages/authentication/singIn.dart';
+import 'package:kaihatsudojo/view/authentication/singIn.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:kaihatsudojo/pages/top.dart';
-import 'package:kaihatsudojo/pages/addDishes.dart';
-import 'package:kaihatsudojo/pages/viewPage.dart';
-import 'package:kaihatsudojo/pages/authentication/singUp.dart';
+import 'package:kaihatsudojo/view/top.dart';
+import 'package:kaihatsudojo/view/addDishes.dart';
+import 'package:kaihatsudojo/view/viewPage.dart';
+import 'package:kaihatsudojo/view/authentication/singUp.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
