@@ -10,15 +10,17 @@ class AddDishes extends StatefulWidget {
 
 class _AddDishesState extends State<AddDishes> {
   String? isSelectedItem = '鶏肉';
+  String? message = '';
+  String? food = '';
 
   @override
   Widget build(BuildContext context) {
 
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('DropdownButton Sample'),
-      ),
+      //appBar: AppBar(
+      //title: const Text('DropdownButton Sample'),
+      //),
       body: Center(
         child: Container(
           decoration: BoxDecoration(
@@ -30,9 +32,9 @@ class _AddDishesState extends State<AddDishes> {
             children: [
 
               Container(
-                margin: EdgeInsets.only(top: 30,bottom: 3),
+                margin: EdgeInsets.only(top: 0,bottom: 10),
                 width: 200,
-                height: 150,
+                height: 70,
                 child:DropdownButtonFormField(
                   decoration:  InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -96,22 +98,25 @@ class _AddDishesState extends State<AddDishes> {
               Container(
                 margin: EdgeInsets.only(top:0, bottom: 10),
                 width:200,
-                height:50,
-                child: TextField(
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
-                          color: Colors.amber,
-                        )
+                height:60,
+                child: TextFormField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Colors.orange,
+                          )
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                            color: Colors.orange,
+                          )
+                      ),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
-                          color: Colors.amber,
-                        )
-                    ),
-                  ),
+                    onChanged: (word){
+                      food = word;
+                    }
                 ),
               ),
 
@@ -120,15 +125,19 @@ class _AddDishesState extends State<AddDishes> {
               Container(
                   width:300,
                   height:100,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.message,
-                        color: Colors.black,
+                  child: TextFormField(
+
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.message,
+                          color: Colors.black,
+                        ),
+                        border:
+                        OutlineInputBorder(),
                       ),
-                      border:
-                      OutlineInputBorder(),
-                    ),
+                      onChanged: (text){
+                        message=text;
+                      }
                   )
               ),
 
