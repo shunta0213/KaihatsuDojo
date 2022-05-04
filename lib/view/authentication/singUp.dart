@@ -21,49 +21,64 @@ class SignUpPage extends ConsumerWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.orangeAccent, Colors.white],
-                begin: Alignment.topRight,
+                colors: [Color(0xFFFFE082), Colors.white],
+                begin: Alignment.topLeft,
                 end: Alignment.bottomCenter),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(bottom: 16),
-                height: 150,
-                width: 150,
-                foregroundDecoration: BoxDecoration(
+                margin: const EdgeInsets.only(bottom: 17),
+                height: 160,
+                width: 160,
+                foregroundDecoration: const BoxDecoration(
                   image: DecorationImage(
-                    alignment: Alignment.center,
-                    scale: 8,
-                    image: AssetImage(''), //アイコンの画像を入れる予定
+                    scale: 3.9,
+                    image: NetworkImage(
+                      'https://cdn-icons-png.flaticon.com/512/2663/2663026.png',
+                    ),
+                    alignment: Alignment.center, //アイコンの画像を入れる予定
                   ),
                 ),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Color(0xFFFFF3ED), Color(0xFFFFE0B2)],
+                  gradient: const LinearGradient(
+                      colors: [Color(0xFFFFF3ED), Color(0xFFFFF8E1)],
                       begin: Alignment.topRight,
                       end: Alignment.bottomCenter),
                   borderRadius: BorderRadius.circular(100),
+                  boxShadow: [
+                    BoxShadow(
+                      //color: Color(0xFFFFF9C4), //色
+                      color: Colors.black12,
+                      spreadRadius: 0.00005,
+                      blurRadius: 20,
+                      offset: Offset(2, 10),
+                    ),
+                  ],
                 ),
               ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
                 child: TextFormField(
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(100),
                         borderSide:
-                            BorderSide(color: Colors.white, width: 1.45)),
+                            BorderSide(color: Colors.black54, width: 0.9)),
                     focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(100),
                         borderSide:
-                            BorderSide(color: Colors.white, width: 1.45)),
-                    border: OutlineInputBorder(),
+                            BorderSide(color: Colors.black54, width: 0.9)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
                     labelText: 'メールアドレス',
                     labelStyle: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                        color: Colors.black54, fontWeight: FontWeight.w500),
                   ),
                   onChanged: (String _emailTemp) {
                     if (infoText != "") {
@@ -81,18 +96,22 @@ class SignUpPage extends ConsumerWidget {
                     Expanded(
                       flex: 1,
                       child: TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide(
-                                    color: Colors.white, width: 1.45)),
+                                    color: Colors.black54, width: 0.9)),
                             focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide(
-                                    color: Colors.white, width: 1.45)),
-                            border: OutlineInputBorder(),
+                                    color: Colors.black54, width: 0.9)),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
                             labelText: 'パスワード',
                             labelStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w500),
                           ),
                           // hide password
                           obscureText: !passwordVeil,
@@ -111,16 +130,20 @@ class SignUpPage extends ConsumerWidget {
                       child: TextFormField(
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide(
-                                    color: Colors.white, width: 1.45)),
+                                    color: Colors.black54, width: 0.9)),
                             focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(100),
                                 borderSide: BorderSide(
-                                    color: Colors.white, width: 1.45)),
-                            border: const OutlineInputBorder(),
+                                    color: Colors.black54, width: 0.9)),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
                             labelText: '確認',
                             labelStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w500),
                             suffixIcon: IconButton(
                               tooltip: 'Show Password',
                               icon: Icon(passwordVeil
@@ -158,11 +181,13 @@ class SignUpPage extends ConsumerWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
+                  elevation: 6,
+                  shadowColor: Colors.black87,
                   padding:
-                      EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
+                      EdgeInsets.only(left: 74, right: 74, top: 15, bottom: 15),
                   primary: Color(0xFFFFF3ED),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
+                    borderRadius: BorderRadius.circular(40),
                   ),
                 ),
               ),
