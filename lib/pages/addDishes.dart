@@ -22,8 +22,8 @@ class _AddDishesState extends State<AddDishes> {
       body: Center(
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.circular(40)
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(40)
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +37,7 @@ class _AddDishesState extends State<AddDishes> {
                   decoration:  InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: const BorderRadius.all(
-                          const Radius.circular(30.0),
+                        const Radius.circular(30.0),
                       ),
                       borderSide: BorderSide(
                         color: Colors.orange,
@@ -80,7 +80,7 @@ class _AddDishesState extends State<AddDishes> {
                     ),
                   ],
 
-                //6
+                  //6
                   onChanged: (String? value) {
                     setState(() {
                       isSelectedItem = value;
@@ -100,16 +100,16 @@ class _AddDishesState extends State<AddDishes> {
                 child: TextField(
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(
-                      color: Colors.amber,
-                      )
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide(
+                          color: Colors.amber,
+                        )
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(
-                      color: Colors.amber,
-                      )
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide(
+                          color: Colors.amber,
+                        )
                     ),
                   ),
                 ),
@@ -118,18 +118,18 @@ class _AddDishesState extends State<AddDishes> {
 
 
               Container(
-                width:300,
-                height:100,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.message,
-                      color: Colors.black,
-                    ),
-                    border:
+                  width:300,
+                  height:100,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.message,
+                        color: Colors.black,
+                      ),
+                      border:
                       OutlineInputBorder(),
-                  ),
-                )
+                    ),
+                  )
               ),
 
               Container(
@@ -139,9 +139,9 @@ class _AddDishesState extends State<AddDishes> {
                     side: BorderSide(),
                   ),
                   child: Icon(
-                      Icons.check,
-                      color: Colors.white,
-                      size: 50,
+                    Icons.check,
+                    color: Colors.white,
+                    size: 50,
                   ),
                 ),
               ),
