@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kaihatsudojo/preparation/color.dart';
-import 'package:kaihatsudojo/preparation/header.dart';
+import 'package:kaihatsudojo/const/color.dart';
+import 'package:kaihatsudojo/const/header.dart';
 import 'viewPage.dart';
 
 class TopPage extends StatefulWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kaihatsudojo/preparation/color.dart';
-import 'package:kaihatsudojo/preparation/header.dart';
-import 'top.dart';
+import 'package:kaihatsudojo/const/color.dart';
+import 'package:kaihatsudojo/const/header.dart';
 
 class ViewPage extends StatefulWidget {
   const ViewPage({Key? key}) : super(key: key);

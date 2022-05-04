@@ -19,7 +19,7 @@ class LoginPage extends ConsumerWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [Colors.orangeAccent, Colors.white],
                 begin: Alignment.topRight,
@@ -29,10 +29,10 @@ class LoginPage extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 16),
+                margin: const EdgeInsets.only(bottom: 16),
                 height: 150,
                 width: 150,
-                foregroundDecoration: BoxDecoration(
+                foregroundDecoration: const BoxDecoration(
                   image: DecorationImage(
                     alignment: Alignment.center,
                     scale: 8,
@@ -40,7 +40,7 @@ class LoginPage extends ConsumerWidget {
                   ),
                 ),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                       colors: [Color(0xFFFFF3ED), Color(0xFFFFE0B2)],
                       begin: Alignment.topRight,
                       end: Alignment.bottomCenter),
@@ -71,15 +71,15 @@ class LoginPage extends ConsumerWidget {
                     const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                         borderSide:
                             BorderSide(color: Colors.white, width: 1.45)),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide:
                             BorderSide(color: Colors.white, width: 1.45)),
                     border: const OutlineInputBorder(),
                     labelText: 'パスワード',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                     suffixIcon: IconButton(
                       tooltip: 'Show Password',
@@ -104,7 +104,7 @@ class LoginPage extends ConsumerWidget {
                     ElevatedButton(
                       onPressed: () async => signIn(context, ref,
                           email: email, password: password),
-                      child: Text(
+                      child: const Text(
                         'サインイン',
                         style: TextStyle(
                           fontWeight: FontWeight.w900,
@@ -112,9 +112,9 @@ class LoginPage extends ConsumerWidget {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                               left: 30, right: 30, top: 15, bottom: 15),
-                          primary: Color(0xFFFFF3ED),
+                          primary: const Color(0xFFFFF3ED),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                           )),
@@ -123,15 +123,15 @@ class LoginPage extends ConsumerWidget {
                     ElevatedButton(
                       onPressed: () =>
                           Navigator.of(context).pushNamed('/signUpPage'),
-                      child: Text(
+                      child: const Text(
                         '新規登録',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.black54),
                       ),
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 36, right: 36, top: 15, bottom: 15),
-                        primary: Color(0xFFFFF3ED),
+                        primary: const Color(0xFFFFF3ED),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
