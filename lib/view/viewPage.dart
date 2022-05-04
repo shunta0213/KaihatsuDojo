@@ -354,31 +354,6 @@ class _ViewPageState extends State<ViewPage> {
           _currentIndex = index;
           Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
         },
-        //   Navigator.push(
-        //     context,
-        //     //   MaterialPageRoute(
-        //     //     builder: (context) {
-        //     //       return MyApp2();
-        //     //     },
-        //     //   ),
-        //     // );
-        //     PageRouteBuilder(
-        //       transitionDuration: Duration(seconds: 0),
-        //       transitionsBuilder: (context, animation, animationTime, child) {
-        //         // animation = CurvedAnimation(
-        //         //     parent: animation, curve: Curves.easeInCirc);
-        //         return ScaleTransition(
-        //           scale: animation,
-        //           alignment: Alignment.center,
-        //           child: child,
-        //         );
-        //       },
-        //       pageBuilder: (context, animation, animationTime) {
-        //         return TopPage();
-        //       },
-        //     ),
-        //   );
-        // },
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               label: 'home',
@@ -398,7 +373,7 @@ class _ViewPageState extends State<ViewPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: kFABButtonColor,
+        backgroundColor: Color(0xFFFFD54F),
         elevation: 2,
         child: const Icon(
           Icons.add,
