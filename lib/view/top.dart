@@ -56,31 +56,30 @@ class _TopPageState extends State<TopPage> {
     String date = outputFormat.format(now);
     return Scaffold(
       body: SafeArea(
-        child:Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-          Container(
-            child: Center(
-            child: Text(
-              date,
-              style: const TextStyle(
-                fontSize: 40),),),
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(10),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Center(
+                    child: Text(
+                      date,
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  width: 250,
+                  height: 120,
+                  margin: const EdgeInsets.only(top: 100),
+                )
+              ],
             ),
-            width: 250,
-            height: 120,
-            margin: const EdgeInsets.only(
-            top: 100
-          ),
-
-          )
           ],
-          ),
-        ],
+        ),
       ),
       // BottomBar部分
       bottomNavigationBar: BottomNavigationBar(
