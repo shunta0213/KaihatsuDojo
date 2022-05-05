@@ -60,7 +60,7 @@ class _ViewPageState extends State<ViewPage> {
                     margin: const EdgeInsets.only(
                         left: 50, right: 30, top: 90, bottom: 20)),
                 onTap: () {
-                  print('牛肉');
+                  Navigator.of(context).pushNamed('/cow');
                 },
               ),
               GestureDetector(
@@ -93,7 +93,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 30, right: 50, top: 90, bottom: 20),
                 ),
                 onTap: () {
-                  print('豚肉');
+                  Navigator.of(context).pushNamed('/pig');
                 },
               )
             ]),
@@ -130,7 +130,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 50, right: 30, top: 30, bottom: 30),
                 ),
                 onTap: () {
-                  print('鶏肉');
+                  Navigator.of(context).pushNamed('/chicken');
                 },
               ),
               GestureDetector(
@@ -163,7 +163,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 30, right: 50, top: 30, bottom: 30),
                 ),
                 onTap: () {
-                  print('魚');
+                  Navigator.of(context).pushNamed('/fish');
                 },
               )
             ]),
@@ -199,7 +199,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 50, right: 30, top: 30, bottom: 30),
                 ),
                 onTap: () {
-                  print('副菜');
+                  Navigator.of(context).pushNamed('/salad');
                 },
               ),
               GestureDetector(
@@ -231,7 +231,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 30, right: 50, top: 30, bottom: 30),
                 ),
                 onTap: () {
-                  print('スープ');
+                  Navigator.of(context).pushNamed('/salad');
                 },
               )
             ]),
@@ -267,7 +267,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 50, right: 30, top: 30, bottom: 30),
                 ),
                 onTap: () {
-                  print('麺類');
+                  Navigator.of(context).pushNamed('/noodle');
                 },
               ),
               GestureDetector(
@@ -299,7 +299,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 30, right: 50, top: 30, bottom: 30),
                 ),
                 onTap: () {
-                  print('その他');
+                  Navigator.of(context).pushNamed('/others');
                 },
               )
             ]),
