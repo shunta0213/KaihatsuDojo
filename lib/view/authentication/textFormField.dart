@@ -16,8 +16,7 @@ class AuthTextFormField extends StatelessWidget {
   /// AuthenticationPage用のtext form field
 
   AuthTextFormField(
-      {
-      this.ref,
+      {this.ref,
       this.isSuffixIconEnable,
       this.infoText,
       this.passwordVeil,
@@ -40,8 +39,8 @@ class AuthTextFormField extends StatelessWidget {
           focusedBorder: AuthDecoration.inputBorder,
           border: const OutlineInputBorder(),
           labelText: labelText,
-          labelStyle:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          labelStyle: const TextStyle(
+              color: Colors.black54, fontWeight: FontWeight.w500),
         ),
         onChanged: (String e) {
           if (infoText != "") {
@@ -60,7 +59,7 @@ class AuthTextFormField extends StatelessWidget {
             border: const OutlineInputBorder(),
             labelText: labelText,
             labelStyle: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
+                color: Colors.black54, fontWeight: FontWeight.w500),
             suffixIcon: IconButton(
               tooltip: 'Show Password',
               icon:
