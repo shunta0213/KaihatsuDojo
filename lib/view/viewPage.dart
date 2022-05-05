@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/color.dart';
 import 'package:kaihatsudojo/const/header.dart';
+import 'package:kaihatsudojo/const/images.dart';
 
 class ViewPage extends StatefulWidget {
   const ViewPage({Key? key}) : super(key: key);
@@ -36,12 +37,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                     width: 100,
                     height: 100,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
                           colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomRight),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           //color: Color(0xFFFFF9C4), //色
                           color: Colors.black12,
@@ -53,9 +54,7 @@ class _ViewPageState extends State<ViewPage> {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         scale: 8.2,
-                        image: NetworkImage(
-                            // 'https://stockmaterial.net/wp/wp-content/uploads/img/animal_cow02_01.png',
-                            'https://cdn-icons.flaticon.com/png/512/2396/premium/2396640.png?token=exp=1651667671~hmac=5618dcee04247a4a7e8784ace5d0032d'),
+                        image: MyImage.cow,
                       ),
                     ),
                     margin: const EdgeInsets.only(
@@ -68,12 +67,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
                         colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomRight),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         //color: Color(0xFFFFF9C4), //色
                         color: Colors.black12,
@@ -86,10 +85,7 @@ class _ViewPageState extends State<ViewPage> {
                     image: DecorationImage(
                       alignment: Alignment(0, 0.155),
                       scale: 8.2,
-                      image: NetworkImage(
-                          'https://cdn-icons-png.flaticon.com/512/2174/2174069.png'
-                          //'https://stockmaterial.net/wp/wp-content/uploads/img/animal_pig01_01.png',
-                          ),
+                      image: MyImage.pig,
                     ),
                   ),
                   //margin: const EdgeInsets.all(20),
@@ -108,12 +104,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
                         colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomRight),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         //color: Color(0xFFFFF9C4), //色
                         color: Colors.black12,
@@ -124,15 +120,9 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      alignment: Alignment(0.00, 0.18),
+                      alignment: const Alignment(0.00, 0.18),
                       scale: 8.0,
-                      image: NetworkImage(
-                          // 'https://cdn-icons-png.flaticon.com/512/2695/2695783.png',
-                          'https://cdn-icons.flaticon.com/png/512/2351/premium/2351188.png?token=exp=1651673084~hmac=e4db398e25872cb25fa228aca684bf64'
-
-                          //'https://cdn-icons.flaticon.com/png/512/2351/premium/2351188.png?token=exp=1651668085~hmac=9fb77c6a1ec69a75f2bd18ef28e1bdf1'
-                          //'https://stockmaterial.net/wp/wp-content/uploads/img/animal_chicken01_01.png',
-                          ),
+                      image: MyImage.chicken,
                     ),
                   ),
                   //margin: const EdgeInsets.all(40),
@@ -147,12 +137,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
                         colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomRight),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         //color: Color(0xFFFFF9C4), //色
                         color: Colors.black12,
@@ -165,10 +155,7 @@ class _ViewPageState extends State<ViewPage> {
                     image: DecorationImage(
                       alignment: Alignment(0.15, 0.18),
                       scale: 8.2,
-                      image: NetworkImage(
-                          'https://cdn-icons.flaticon.com/png/512/2929/premium/2929546.png?token=exp=1651668237~hmac=f86b3412b6a5403494d83ec187f6a4f6'
-                          // 'https://stockmaterial.net/wp/wp-content/uploads/img/animal_red_snapper01_01.png',
-                          ),
+                      image: MyImage.fish,
                     ),
                   ),
                   //margin: const EdgeInsets.all(40),
@@ -187,12 +174,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
                         colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomRight),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         //color: Color(0xFFFFF9C4), //色
                         color: Colors.black12,
@@ -204,10 +191,7 @@ class _ViewPageState extends State<ViewPage> {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       scale: 7.5,
-                      image: NetworkImage(
-                          'https://cdn-icons.flaticon.com/png/512/2515/premium/2515263.png?token=exp=1651668329~hmac=1283767729fff7d517075aec41c06bcc'
-                          //'https://stockmaterial.net/wp/wp-content/uploads/img/food_breakfast01_01.png',
-                          ),
+                      image: MyImage.salad,
                     ),
                   ),
                   //margin: const EdgeInsets.all(40),
@@ -222,12 +206,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
                         colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomRight),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         //color: Color(0xFFFFF9C4), //色
                         color: Colors.black12,
@@ -239,9 +223,7 @@ class _ViewPageState extends State<ViewPage> {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       scale: 8.2,
-                      image: NetworkImage(
-                        'https://cdn-icons.flaticon.com/png/512/2387/premium/2387954.png?token=exp=1651668364~hmac=23a78712b92eb3e08f1340b7450e408c',
-                      ),
+                      image: MyImage.soup,
                     ),
                   ),
                   // margin: const EdgeInsets.all(40),
@@ -260,12 +242,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
                         colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomRight),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         //color: Color(0xFFFFF9C4), //色
                         color: Colors.black12,
@@ -277,8 +259,7 @@ class _ViewPageState extends State<ViewPage> {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       scale: 9.2,
-                      image: NetworkImage(
-                          'https://cdn-icons.flaticon.com/png/512/751/premium/751086.png?token=exp=1651668426~hmac=7561c3b7cb31370e3fcffb304deb93f0'),
+                      image: MyImage.noodle,
                     ),
                   ),
                   //margin: const EdgeInsets.all(40),
@@ -293,12 +274,12 @@ class _ViewPageState extends State<ViewPage> {
                 child: Container(
                   width: 100,
                   height: 100,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
                         colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomRight),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         //color: Color(0xFFFFF9C4), //色
                         color: Colors.black12,
@@ -310,8 +291,7 @@ class _ViewPageState extends State<ViewPage> {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       scale: 8.2,
-                      image: NetworkImage(
-                          'https://cdn-icons-png.flaticon.com/512/3649/3649227.png'),
+                      image: MyImage.others,
                     ),
                   ),
                   //margin: const EdgeInsets.all(40),

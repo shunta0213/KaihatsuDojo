@@ -11,7 +11,6 @@ class LoginPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final infoTextState = ref.read(signUpTextProvider.state);
     final bool passwordVeil = ref.watch<bool>(passwordVeilProvider);
     final emailState = ref.read(emailProvider.state);
@@ -62,7 +61,7 @@ class LoginPage extends ConsumerWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 16),
-                child: Column(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -81,15 +80,15 @@ class LoginPage extends ConsumerWidget {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                          elevation: 6,
-                          shadowColor: Colors.black87,
-                          padding: const EdgeInsets.only(
-                              left: 30, right: 30, top: 15, bottom: 15),
-                          primary: AuthColors.buttonPrimaryColor,
-                          shape: AuthDecoration.buttonBorder,
+                        elevation: 6,
+                        shadowColor: Colors.black87,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 15),
+                        primary: AuthColors.buttonPrimaryColor,
+                        shape: AuthDecoration.buttonBorder,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(width: 20),
                     ElevatedButton(
                       onPressed: () =>
                           Navigator.of(context).pushNamed('/signUpPage'),
@@ -101,9 +100,9 @@ class LoginPage extends ConsumerWidget {
                       style: ElevatedButton.styleFrom(
                         elevation: 6,
                         shadowColor: Colors.black87,
-                        padding: const EdgeInsets.only(
-                            left: 103, right: 103, top: 15, bottom: 15),
-                        primary: const Color(0xFFFFF3ED),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 15),
+                        primary: AuthColors.buttonPrimaryColor,
                         shape: AuthDecoration.buttonBorder,
                       ),
                     ),
