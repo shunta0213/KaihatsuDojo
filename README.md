@@ -1,10 +1,6 @@
-# kaihatsu_dojo！
+# kaihatsu_test
 
-branchの名前
-/自分の名前/任意の文字
-
-ex) shunta/authentication など。
-
+A new Flutter project.
 
 ## Getting Started
 
