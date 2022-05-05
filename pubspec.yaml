@@ -75,6 +75,7 @@ flutter:
       - assets/images/logo_6.png
       - assets/images/logo_7.png
       - assets/images/logo_8.png
+      - assets/images/appIcon.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

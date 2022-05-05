@@ -18,23 +18,33 @@ class AuthDecoration {
   /// 画面全体のグラデーション
   static const gradation = BoxDecoration(
     gradient: LinearGradient(
-      colors: [Colors.orangeAccent, Colors.white],
-      begin: Alignment.topRight,
-      end: Alignment.bottomCenter,
-    ),
+        colors: [Color(0xFFFFE082), Colors.white],
+        begin: Alignment.topRight,
+        end: Alignment.bottomCenter),
   );
 
   /// Button, TextFormField 用の アウトラインデコレーション
-  static const inputBorder = OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.white, width: 1.45),
+  static final inputBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(100),
+    borderSide: BorderSide(color: Colors.black54, width: 0.9),
   );
 
   /// Button デコレーション
-  static const buttonDecoration = BoxDecoration(
+  static final buttonDecoration = BoxDecoration(
     gradient: LinearGradient(
-        colors: [Color(0xFFFFF3ED), Color(0xFFFFE0B2)],
+        colors: [Color(0xFFFFF3ED), Color(0xFFFFF8E1)],
         begin: Alignment.topRight,
         end: Alignment.bottomCenter),
+    borderRadius: BorderRadius.circular(100),
+    boxShadow: [
+      BoxShadow(
+        //color: Color(0xFFFFF9C4), //色
+        color: Colors.black12,
+        spreadRadius: 0.00005,
+        blurRadius: 20,
+        offset: Offset(2, 10),
+      ),
+    ],
   );
 
   /// button shape
