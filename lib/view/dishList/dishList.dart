@@ -54,7 +54,7 @@ class ListPage extends StatelessWidget {
               if (snapshot.hasError) {
                 return const Text('Something went wrong');
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
 
               return Expanded(
