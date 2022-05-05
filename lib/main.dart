@@ -23,6 +23,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.amber,
+        backgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          color: Colors.white.withOpacity(0.8),
+          elevation: 0,
+        ),
       ),
       routes: PageRoutes.pageRoutes,
       home: const LoginPage(),

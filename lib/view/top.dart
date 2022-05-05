@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/color.dart';
 import 'package:kaihatsudojo/const/header.dart';
+import 'package:kaihatsudojo/view/drawer/appBar.dart';
+import 'package:kaihatsudojo/view/drawer/drawer.dart';
 import 'viewPage.dart';
 
 class TopPage extends StatefulWidget {
@@ -19,9 +21,9 @@ class _TopPageState extends State<TopPage> {
   @override
   Widget build(BuildContext context) {
     // For Firebase Auth and Firestore
-    final auth = FirebaseAuth.instance;
+    final User user = FirebaseAuth.instance.currentUser!;
     final db = FirebaseFirestore.instance;
-    final uid = auth.currentUser!.uid;
+    final uid = user.uid;
 
     // For Bottom Bar
     bool _currentIndexColor = true;
@@ -53,9 +55,8 @@ class _TopPageState extends State<TopPage> {
     return Scaffold(
       //基本はここに書いていく
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(uid),
+          SizedBox(height: AppBar().preferredSize.height,),
         ],
       ),
       // BottomBar部分
@@ -77,6 +78,10 @@ class _TopPageState extends State<TopPage> {
         ),
         onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),
+
+      appBar: MyAppBar(),
+      drawer: MyDrawer(user: user,),
+      extendBodyBehindAppBar: true,
     );
   }
 }
