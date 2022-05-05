@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:kaihatsudojo/const//color.dart';
+import 'package:kaihatsudojo/const/color.dart';
 
 class beauty_header extends StatelessWidget {
   const beauty_header({
