@@ -87,7 +87,7 @@ class _TopPageState extends State<TopPage> {
                   ),
                   width: 282.514,
                   height: 178.539,
-                  margin: const EdgeInsets.only(top: 80, left: 61, right: 40),
+                  margin: const EdgeInsets.only(top: 35, left: 61, right: 40),
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
@@ -165,7 +165,9 @@ class _TopPageState extends State<TopPage> {
       ),
 
       appBar: MyAppBar(),
-      drawer: MyDrawer(user: user,),
+      drawer: MyDrawer(
+        user: user,
+      ),
       extendBodyBehindAppBar: true,
     );
   }
