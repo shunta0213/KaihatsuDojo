@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-/// ページ遷移のアニメーションカスタム
 
 class CustomTransitionBuilder extends PageTransitionsBuilder {
-  const CustomTransitionBuilder();
 
+  /// ページ遷移のアニメーション
+
+  const CustomTransitionBuilder();
   @override
   Widget buildTransitions<T>(
       PageRoute<T> route,
