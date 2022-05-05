@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:kaihatsudojo/view/authentication/singIn.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:kaihatsudojo/view/top.dart';
-import 'package:kaihatsudojo/view/addDishes.dart';
-import 'package:kaihatsudojo/view/viewPage.dart';
-import 'package:kaihatsudojo/view/authentication/singUp.dart';
+import 'package:kaihatsudojo/view/authentication/singIn.dart';
+import 'package:kaihatsudojo/const/pageRoutes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,13 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      routes: {
-        '/loginPage': (context) => const LoginPage(),
-        '/signUpPage': (context) => const SignUpPage(),
-        '/mainPage': (BuildContext context) => const TopPage(),
-        '/addDishes': (BuildContext context) => const AddDishes(),
-        '/viewPage': (BuildContext context) => const ViewPage(),
-      },
+      routes: PageRoutes.pageRoutes,
       home: const LoginPage(),
     );
   }
