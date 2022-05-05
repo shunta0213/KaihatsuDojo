@@ -12,11 +12,13 @@ class SignUpPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Provider
-    final infoText = ref.watch<String>(signUpTextProvider);
     final infoTextState = ref.read(signUpTextProvider.state);
     final emailState = ref.read(emailProvider.state);
     final passwordState = ref.read(passwordProvider.state);
     final passwordCheckState = ref.read(passwordCheckProvider.state);
+    final userNameState = ref.read(userNameProvider.state);
+
+    final infoText = ref.watch<String>(signUpTextProvider);
     final bool _passwordVeil = ref.watch<bool>(passwordVeilProvider);
 
     return Scaffold(
@@ -38,6 +40,16 @@ class SignUpPage extends ConsumerWidget {
                 //   ),
                 //  ),
                 //  decoration: AuthDecoration.buttonDecoration,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+                child: AuthTextFormField(
+                  labelText: 'ユーザー名',
+                  infoText: infoText,
+                  infoProvider: infoTextState,
+                  valueProvider: userNameState,
+                ),
               ),
               Padding(
                 padding:
@@ -88,11 +100,13 @@ class SignUpPage extends ConsumerWidget {
               ElevatedButton(
                 onPressed: () async {
                   signUp(
-                      context,
-                      ref,
-                      ref.watch(passwordProvider),
-                      ref.watch(passwordCheckProvider),
-                      ref.watch(emailProvider));
+                    context,
+                    ref,
+                    ref.watch(passwordProvider),
+                    ref.watch(passwordCheckProvider),
+                    ref.watch(emailProvider),
+                    ref.watch(userNameProvider),
+                  );
                 },
                 child: Text(
                   '登録',
