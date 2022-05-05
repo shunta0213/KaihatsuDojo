@@ -29,18 +29,46 @@ class SignUpPage extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.only(bottom: 16),
-                height: 150,
-                width: 150,
-                // foregroundDecoration: const BoxDecoration(
-                // image:  DecorationImage(
-                // alignment: Alignment.center,
-                // scale: 8,
-                // image: AssetImage(''), //アイコンの画像を入れる予定
-                //   ),
-                //  ),
-                //  decoration: AuthDecoration.buttonDecoration,
+                margin: const EdgeInsets.only(bottom: 17),
+                height: 160,
+                width: 160,
+                foregroundDecoration: const BoxDecoration(
+                  image: DecorationImage(
+                    alignment: Alignment.center,
+                    // scale: 4,
+                    // image: AssetImage(''), //アイコンの画像を入れる予定
+                    scale: 3.9,
+                    image: NetworkImage(
+                      'https://cdn-icons-png.flaticon.com/512/2663/2663026.png',
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                      colors: [Color(0xFFFFF3ED), Color(0xFFFFF8E1)],
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomCenter),
+                  borderRadius: BorderRadius.circular(100),
+                  boxShadow: const [
+                    BoxShadow(
+                      //color: Color(0xFFFFF9C4), //色
+                      color: Colors.black12,
+                      spreadRadius: 0.00005,
+                      blurRadius: 20,
+                      offset: Offset(2, 10),
+                    ),
+                  ],
+                ),
               ),
+              // foregroundDecoration: const BoxDecoration(
+              // image:  DecorationImage(
+              // alignment: Alignment.center,
+              // scale: 8,
+              // image: AssetImage(''), //アイコンの画像を入れる予定
+              //   ),
+              //  ),
+              //  decoration: AuthDecoration.buttonDecoration,
+
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
@@ -120,7 +148,7 @@ class SignUpPage extends ConsumerWidget {
                   elevation: 6,
                   shadowColor: Colors.black87,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                      const EdgeInsets.symmetric(horizontal: 86, vertical: 15),
                   primary: AuthColors.buttonPrimaryColor,
                   shape: AuthDecoration.buttonBorder,
                 ),
@@ -131,7 +159,7 @@ class SignUpPage extends ConsumerWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.amber,
+        backgroundColor: Color(0xFFFFD54F),
         onPressed: () => Navigator.of(context).pop(),
         child: const Icon(
           Icons.arrow_back,

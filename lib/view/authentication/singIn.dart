@@ -33,14 +33,14 @@ class LoginPage extends ConsumerWidget {
                     image: NetworkImage(
                       'https://cdn-icons-png.flaticon.com/512/2663/2663026.png',
                     ),
-                    alignment: Alignment.center, //アイコンの画像を入れる予定
+                    alignment: Alignment.center,
                   ),
                 ),
                 decoration: AuthDecoration.buttonDecoration,
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+                    const EdgeInsets.symmetric(vertical: 12.0, horizontal: 30),
                 child: AuthTextFormField(
                   labelText: 'メールアドレス',
                   infoProvider: infoTextState,
@@ -49,7 +49,7 @@ class LoginPage extends ConsumerWidget {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
+                    const EdgeInsets.symmetric(vertical: 4.0, horizontal: 30),
                 child: AuthTextFormField(
                   passwordVeil: passwordVeil,
                   labelText: 'パスワード',
@@ -61,7 +61,7 @@ class LoginPage extends ConsumerWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 16),
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -75,7 +75,7 @@ class LoginPage extends ConsumerWidget {
                       child: Text(
                         'サインイン',
                         style: TextStyle(
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w500,
                           color: AuthColors.buttonTextColor,
                         ),
                       ),
@@ -83,12 +83,12 @@ class LoginPage extends ConsumerWidget {
                         elevation: 6,
                         shadowColor: Colors.black87,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 15),
+                            horizontal: 95, vertical: 15),
                         primary: AuthColors.buttonPrimaryColor,
                         shape: AuthDecoration.buttonBorder,
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () =>
                           Navigator.of(context).pushNamed('/signUpPage'),
@@ -101,7 +101,7 @@ class LoginPage extends ConsumerWidget {
                         elevation: 6,
                         shadowColor: Colors.black87,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 15),
+                            horizontal: 103, vertical: 15),
                         primary: AuthColors.buttonPrimaryColor,
                         shape: AuthDecoration.buttonBorder,
                       ),

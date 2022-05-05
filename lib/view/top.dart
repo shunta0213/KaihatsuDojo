@@ -6,6 +6,7 @@ import 'package:kaihatsudojo/const/header.dart';
 import 'package:kaihatsudojo/view/drawer/appBar.dart';
 import 'package:kaihatsudojo/view/drawer/drawer.dart';
 import 'viewPage.dart';
+import 'package:intl/intl.dart';
 
 class TopPage extends StatefulWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -52,12 +53,35 @@ class _TopPageState extends State<TopPage> {
     ];
     // end
 
+    DateTime now = DateTime.now();
+    DateFormat outputFormat = DateFormat('M月d日');
+    String date = outputFormat.format(now);
     return Scaffold(
-      //基本はここに書いていく
-      body: Column(
-        children: [
-          SizedBox(height: AppBar().preferredSize.height,),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Center(
+                    child: Text(
+                      date,
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  width: 250,
+                  height: 120,
+                  margin: const EdgeInsets.only(top: 100),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
       // BottomBar部分
       bottomNavigationBar: BottomNavigationBar(

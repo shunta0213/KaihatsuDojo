@@ -39,6 +39,7 @@ dependencies:
   cloud_firestore: ^3.1.12
   provider: ^6.0.2
   flutter_riverpod: ^1.0.3
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,7 @@ flutter:
       - assets/images/logo_6.png
       - assets/images/logo_7.png
       - assets/images/logo_8.png
+      - assets/images/appIcon.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
