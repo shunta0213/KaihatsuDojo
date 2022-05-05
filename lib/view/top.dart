@@ -82,22 +82,6 @@ class _TopPageState extends State<TopPage> {
           ),
         ],
       ),
-      ),
-      // body: Center(
-      //   child: Container(
-      //     width: MediaQuery.of(context).size.width,
-      //     height: MediaQuery.of(context).size.height,
-      //     color: Color(0xFFFFAFAFA),
-      //     child: Stack(
-      //       fit: StackFit.expand,
-      //       children: <Widget>[
-      //         beauty_header(),
-      //         Text(uid), //ここいじりました。沼澤
-      //       ],
-      //     ),
-      //   ),
-      // ),
-
       // BottomBar部分
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -105,37 +89,12 @@ class _TopPageState extends State<TopPage> {
           _currentIndex = index;
           Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
         },
-        //   Navigator.push(
-        //     context,
-        //     //   MaterialPageRoute(
-        //     //     builder: (context) {
-        //     //       return MyApp2();
-        //     //     },
-        //     //   ),
-        //     // );
-        //     PageRouteBuilder(
-        //       transitionDuration: Duration(seconds: 0),
-        //       transitionsBuilder: (context, animation, animationTime, child) {
-        //         // animation = CurvedAnimation(
-        //         //     parent: animation, curve: Curves.easeInCirc);
-        //         return ScaleTransition(
-        //           scale: animation,
-        //           alignment: Alignment.center,
-        //           child: child,
-        //         );
-        //       },
-        //       pageBuilder: (context, animation, animationTime) {
-        //         return ViewPage();
-        //       },
-        //     ),
-        //   );
-        // },
         items: barItem,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         elevation: 2,
-        backgroundColor: kFABButtonColor,
+        backgroundColor: Color(0xFFFFD54F),
         child: const Icon(
           Icons.add,
           color: Colors.white,
