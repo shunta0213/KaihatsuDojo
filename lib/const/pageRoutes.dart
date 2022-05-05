@@ -3,15 +3,17 @@ import 'package:kaihatsudojo/const/images.dart';
 
 import 'package:kaihatsudojo/view/authentication/singIn.dart';
 import 'package:kaihatsudojo/view/dishList/dishList.dart';
-import 'package:kaihatsudojo/view/top.dart';
-import 'package:kaihatsudojo/view/addDishes.dart';
-import 'package:kaihatsudojo/view/viewPage.dart';
+import 'package:kaihatsudojo/view/pages/top.dart';
+import 'package:kaihatsudojo/view/pages/addDishes.dart';
+import 'package:kaihatsudojo/model/userCheck.dart';
+import 'package:kaihatsudojo/view/pages/viewPage.dart';
 import 'package:kaihatsudojo/view/authentication/singUp.dart';
 
 class PageRoutes {
   static Map<String, Widget Function(BuildContext)> pageRoutes = {
-    '/loginPage': (context) => const LoginPage(),
-    '/signUpPage': (context) => const SignUpPage(),
+    '/': (BuildContext context) => userCheck(context),
+    '/loginPage': (BuildContext context) => const LoginPage(),
+    '/signUpPage': (BuildContext context) => const SignUpPage(),
     '/mainPage': (BuildContext context) => const TopPage(),
     '/addDishes': (BuildContext context) => const AddDishes(),
     '/viewPage': (BuildContext context) => const ViewPage(),
