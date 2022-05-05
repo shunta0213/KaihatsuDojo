@@ -11,8 +11,7 @@ class MyAppBar extends AppBar {
         decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [Colors.amber, Color(0xFFFFD54F)] //グラデーションの設定
-            )
-        ),
+                )),
       ),
     );
   }
