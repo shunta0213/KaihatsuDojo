@@ -117,6 +117,8 @@ class SignUpPage extends ConsumerWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
+                  elevation: 6,
+                  shadowColor: Colors.black87,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   primary: AuthColors.buttonPrimaryColor,

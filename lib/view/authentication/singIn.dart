@@ -11,7 +11,6 @@ class LoginPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final infoTextState = ref.read(signUpTextProvider.state);
     final bool passwordVeil = ref.watch<bool>(passwordVeilProvider);
     final emailState = ref.read(emailProvider.state);
@@ -25,14 +24,16 @@ class LoginPage extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.only(bottom: 16),
-                height: 150,
-                width: 150,
+                margin: const EdgeInsets.only(bottom: 17),
+                height: 160,
+                width: 160,
                 foregroundDecoration: const BoxDecoration(
                   image: DecorationImage(
-                    alignment: Alignment.center,
-                    scale: 8,
-                    image: AssetImage(''), //アイコンの画像を入れる予定
+                    scale: 3.9,
+                    image: NetworkImage(
+                      'https://cdn-icons-png.flaticon.com/512/2663/2663026.png',
+                    ),
+                    alignment: Alignment.center, //アイコンの画像を入れる予定
                   ),
                 ),
                 decoration: AuthDecoration.buttonDecoration,
@@ -59,7 +60,7 @@ class LoginPage extends ConsumerWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(top: 20, bottom: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
@@ -79,10 +80,12 @@ class LoginPage extends ConsumerWidget {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.only(
-                              left: 30, right: 30, top: 15, bottom: 15),
-                          primary: AuthColors.buttonPrimaryColor,
-                          shape: AuthDecoration.buttonBorder,
+                        elevation: 6,
+                        shadowColor: Colors.black87,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 15),
+                        primary: AuthColors.buttonPrimaryColor,
+                        shape: AuthDecoration.buttonBorder,
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -92,12 +95,14 @@ class LoginPage extends ConsumerWidget {
                       child: const Text(
                         '新規登録',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black54),
+                            fontWeight: FontWeight.w500, color: Colors.black54),
                       ),
                       style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.only(
-                            left: 36, right: 36, top: 15, bottom: 15),
-                        primary: const Color(0xFFFFF3ED),
+                        elevation: 6,
+                        shadowColor: Colors.black87,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 15),
+                        primary: AuthColors.buttonPrimaryColor,
                         shape: AuthDecoration.buttonBorder,
                       ),
                     ),
