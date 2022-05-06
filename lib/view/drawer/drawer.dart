@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kaihatsudojo/const/drawer/drawerDecoration.dart';
 
 import '../../model/drawer/userData.dart';
@@ -45,6 +46,16 @@ class MyDrawer extends Drawer {
             onTap: () => {print("賞味期限が近い食材が入力されます")},
           ),
           ListTile(
+            title: const Text("ぶたのちょきんばこ"),
+            subtitle: const Text("今月の食費"),
+            leading: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(Icons.savings),
+            ),
+            trailing: const Icon(Icons.arrow_forward),
+            onTap: () => {print("今月の食費を調べます")},
+          ),
+          ListTile(
             title: const Text("検索"),
             subtitle: const Text("クックパッドで探す"),
             leading: const Padding(
@@ -59,7 +70,7 @@ class MyDrawer extends Drawer {
             subtitle: const Text("Instagramで探す"),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.image_search),
+              child: Icon(FontAwesomeIcons.instagram),
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () => {print("Instagramで検索します")},
@@ -69,7 +80,7 @@ class MyDrawer extends Drawer {
             subtitle: const Text("Twitterで探す"),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.flutter_dash),
+              child: Icon(FontAwesomeIcons.twitter),
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () => {print("Twitterで検索します")},
@@ -83,16 +94,6 @@ class MyDrawer extends Drawer {
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () => {print("オレンジページで検索します")},
-          ),
-          ListTile(
-            title: const Text("ぶたのちょきんばこ"),
-            subtitle: const Text("今月の食費"),
-            leading: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.savings),
-            ),
-            trailing: const Icon(Icons.arrow_forward),
-            onTap: () => {print("今月の食費を調べます")},
           ),
           ListTile(
             title: const Text("使い方ガイド"),
