@@ -23,13 +23,24 @@ class ListPage extends StatelessWidget {
     final double deviceHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 40, bottom: 8),
-            child: SizedBox(
-              height: deviceHeight * 0.1,
+            padding: const EdgeInsets.only(top: 0, bottom: 0),
+            child: Container(
+              padding: EdgeInsets.only(bottom: 13.2, top: 36),
+              decoration: const BoxDecoration(
+                gradient: const LinearGradient(
+                    colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight),
+                // border: Border(
+                //   bottom: BorderSide(color: Color(0xFFFFD54F), width: 0.8),
+                // ),
+              ),
+              height: deviceHeight * 0.155,
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: icon,
@@ -49,30 +60,44 @@ class ListPage extends StatelessWidget {
               return Expanded(
                 flex: 1,
                 child: ListView(
+                  padding: EdgeInsets.only(left: 15),
                   children:
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     return ListTile(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
                       tileColor: Colors.white,
-                      leading: const Icon(
-                        Icons.circle,
-                        size: 10,
+                      leading: CircleAvatar(
+                        radius: 10,
+                        child: const Icon(
+                          Icons.circle,
+                          size: 0,
+                        ),
                       ),
-                      title: Text(document.get('name')),
-                      subtitle: Column(children: [
-                        Text(DateFormat('作成日 : yyyy/MM/dd')
-                            .format(document.get('date').toDate())),
-                        Text(document.get('notes') ?? 'なにもないよ！'),
-                      ]),
+                      title: Text(
+                        document.get('name'),
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      minLeadingWidth: 26.5,
+                      minVerticalPadding: 10,
+                      subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(DateFormat('作成日 : yyyy/MM/dd')
+                                .format(document.get('date').toDate())),
+                            Text(document.get('notes') ?? 'なにもないよ！'),
+                          ]),
                       trailing: TextButton(
                           onPressed: () async => deleteDish(
                                 context: context,
                                 uid: uid,
                                 document: document,
                               ),
-                          child: const Icon(Icons.delete)),
+                          child: const Icon(
+                            Icons.delete_outline_sharp,
+                            color: Colors.grey,
+                          )),
                       dense: true,
                       contentPadding: const EdgeInsets.all(8),
                     );
@@ -87,7 +112,8 @@ class ListPage extends StatelessWidget {
       floatingActionButton: Container(
         padding: const EdgeInsets.only(bottom: 10),
         child: FloatingActionButton(
-          child: const Icon(Icons.clear),
+          backgroundColor: Color(0xFFFFD54F),
+          child: const Icon(Icons.clear, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),

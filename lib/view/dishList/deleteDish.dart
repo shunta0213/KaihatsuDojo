@@ -26,5 +26,4 @@ void deleteDish({context, uid, document}) async {
           ],
         );
       });
-
 }

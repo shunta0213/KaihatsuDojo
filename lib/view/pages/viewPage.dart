@@ -83,8 +83,8 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      alignment: Alignment(0, 0.155),
-                      scale: 8.2,
+                      alignment: Alignment(0, 0.23),
+                      scale: 8.4,
                       image: MyImage.pig,
                     ),
                   ),
@@ -120,7 +120,7 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      alignment: const Alignment(0.00, 0.18),
+                      alignment: const Alignment(0.14, 0.18),
                       scale: 8.0,
                       image: MyImage.chicken,
                     ),
@@ -153,8 +153,8 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      alignment: Alignment(0.15, 0.18),
-                      scale: 8.2,
+                      alignment: Alignment(0.15, 0.27),
+                      scale: 8.55,
                       image: MyImage.fish,
                     ),
                   ),
@@ -190,7 +190,7 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      scale: 7.5,
+                      scale: 7.8,
                       image: MyImage.salad,
                     ),
                   ),
@@ -231,7 +231,7 @@ class _ViewPageState extends State<ViewPage> {
                       left: 30, right: 50, top: 30, bottom: 30),
                 ),
                 onTap: () {
-                  Navigator.of(context).pushNamed('/salad');
+                  Navigator.of(context).pushNamed('/soup');
                 },
               )
             ]),
@@ -258,7 +258,7 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      scale: 9.2,
+                      scale: 9.5,
                       image: MyImage.noodle,
                     ),
                   ),
@@ -304,28 +304,6 @@ class _ViewPageState extends State<ViewPage> {
               )
             ]),
       ]),
-      // body: Center(
-      //   child: Container(
-      //     //白の部分
-      //     width: MediaQuery.of(context).size.width,
-      //     height: MediaQuery.of(context).size.height,
-      //     color: Color(0xFFFFAFAFA),
-      //     child: Stack(
-      //       fit: StackFit.expand,
-      //       children: <Widget>[
-      //         //背景
-      //         beauty_header(),
-      //         // 基本ここに書いていく
-      //         Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             Text('Page2'),
-      //           ],
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
 
       // BottomBar 部分
       bottomNavigationBar: BottomNavigationBar(

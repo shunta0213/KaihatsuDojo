@@ -17,10 +17,26 @@ class AuthColors {
 class AuthDecoration {
   /// 画面全体のグラデーション
   static const gradation = BoxDecoration(
-    gradient: LinearGradient(
-        colors: [Color(0xFFFFE082), Colors.white],
-        begin: Alignment.topRight,
-        end: Alignment.bottomCenter),
+    gradient: LinearGradient(colors: [
+      // Color(0xFFFFF3ED),
+      // Color(0xFFFFE0B2),
+      Colors.lightBlueAccent,
+      Color(0xFFFFE0B2),
+      Color(0xFFFFF3ED),
+      // Color(0xFFFFE0B2),
+      // Color(0xFFFFCC80),
+      // Color(0xFFFFB74D),
+      // Color(0xFFFFB74D),
+      // Color(0xFFFFA726),
+      //
+      // Color(0xFFFFE0B2),
+      // Color(0xFFFF),
+      // Color(0xFFFF),
+      // Color(0xFFFF),
+      // Color(0xFFFF),
+      // Color(0xFFFF),
+      // Color(0xFFFF),
+    ], begin: Alignment.topRight, end: Alignment.bottomCenter),
   );
 
   /// Button, TextFormField 用の アウトラインデコレーション
