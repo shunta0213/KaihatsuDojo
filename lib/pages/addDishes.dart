@@ -25,16 +25,23 @@ class _AddDishesState extends State<AddDishes> {
         child: Container(
           decoration: BoxDecoration(
               color: Colors.transparent,
-              borderRadius: BorderRadius.circular(40)
+              borderRadius: BorderRadius.circular(15)
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text('ジャンル',
+                  style: TextStyle(
+                    fontSize: 20,
+                  )
+              ),
+
 
               Container(
-                margin: EdgeInsets.only(top: 0,bottom: 10),
+                margin: EdgeInsets.only(top: 0,bottom: 30),
                 width: 200,
                 height: 70,
+
                 child:DropdownButtonFormField(
                   decoration:  InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -94,9 +101,13 @@ class _AddDishesState extends State<AddDishes> {
               ),
 
 
-
+              Text('メニュー名',
+                  style: TextStyle(
+                    fontSize: 20,
+                  )
+              ),
               Container(
-                margin: EdgeInsets.only(top:0, bottom: 10),
+                margin: EdgeInsets.only(top:0, bottom: 30),
                 width:200,
                 height:60,
                 child: TextFormField(
@@ -121,19 +132,37 @@ class _AddDishesState extends State<AddDishes> {
               ),
 
 
-
+              Text('メモ',
+                  style: TextStyle(
+                    fontSize: 20,
+                  )
+              ),
               Container(
-                  width:300,
-                  height:100,
+                  width:200,
+                  height:250,
                   child: TextFormField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 3,
+                      minLines: 1,
+
 
                       decoration: InputDecoration(
+                        contentPadding:
+                        EdgeInsets.all(30),
+
+
                         prefixIcon: Icon(
                           Icons.message,
                           color: Colors.black,
                         ),
                         border:
-                        OutlineInputBorder(),
+                        OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.orange,
+
+                          ),
+                        ),
+
                       ),
                       onChanged: (text){
                         message=text;
@@ -141,18 +170,20 @@ class _AddDishesState extends State<AddDishes> {
                   )
               ),
 
+
+
+
               Container(
-                child: Material(
-                  color: Colors.lightGreen,
-                  shape: CircleBorder(
-                    side: BorderSide(),
-                  ),
-                  child: Icon(
-                    Icons.check,
-                    color: Colors.white,
-                    size: 50,
-                  ),
-                ),
+                  child: MaterialButton(
+                    onPressed: (){},
+                    child: Icon(
+                        Icons.check
+                    ),
+                    padding: EdgeInsets.all(16),
+                    color: Colors.orange,
+                    textColor: Colors.white,
+                    shape: CircleBorder(),
+                  )
               ),
             ],
           ),
