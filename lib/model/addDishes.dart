@@ -17,7 +17,6 @@ void addDishes(BuildContext context,
       'notes': notes,
       'date': now,
     },
-    SetOptions(merge: true),
   ).catchError((error) => print('error : $error'));
   Navigator.of(context).pop();
 }

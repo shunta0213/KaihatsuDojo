@@ -22,13 +22,13 @@ class PageRoutes {
     '/viewPage': (BuildContext context) => const ViewPage(),
 
     // For DishList
-    '/cow':(BuildContext context) => ListPage(genre: '牛', icon: ImagesWidget.cow),
-    '/pig':(BuildContext context) => ListPage(genre: '豚', icon: ImagesWidget.pig),
-    '/chicken':(BuildContext context) => ListPage(genre: '鶏', icon: ImagesWidget.chicken),
-    '/fish':(BuildContext context) => ListPage(genre: '魚', icon: ImagesWidget.fish),
-    '/salad':(BuildContext context) => ListPage(genre: 'サラダ', icon: ImagesWidget.salad),
+    '/cow':(BuildContext context) => ListPage(genre: '牛肉', icon: ImagesWidget.cow),
+    '/pig':(BuildContext context) => ListPage(genre: '豚肉', icon: ImagesWidget.pig),
+    '/chicken':(BuildContext context) => ListPage(genre: '鶏肉', icon: ImagesWidget.chicken),
+    '/fish':(BuildContext context) => ListPage(genre: '魚類', icon: ImagesWidget.fish),
+    '/salad':(BuildContext context) => ListPage(genre: '副菜', icon: ImagesWidget.salad),
     '/soup':(BuildContext context) => ListPage(genre: '汁物', icon: ImagesWidget.soup),
-    '/noodle':(BuildContext context) => ListPage(genre: '麺', icon: ImagesWidget.noodle),
+    '/noodle':(BuildContext context) => ListPage(genre: '麺類', icon: ImagesWidget.noodle),
     '/others':(BuildContext context) => ListPage(genre: 'その他', icon: ImagesWidget.others),
 
     // For Drawer Page

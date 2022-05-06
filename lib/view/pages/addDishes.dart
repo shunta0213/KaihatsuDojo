@@ -75,12 +75,12 @@ class _AddDishesState extends State<AddDishes> {
                     value: '副菜',
                   ),
                   DropdownMenuItem(
-                    child: Text('麺類'),
-                    value: '麺類',
-                  ),
-                  DropdownMenuItem(
                     child: Text('汁物'),
                     value: '汁物',
+                  ),
+                  DropdownMenuItem(
+                    child: Text('麺類'),
+                    value: '麺類',
                   ),
                   DropdownMenuItem(
                     child: Text('その他'),
