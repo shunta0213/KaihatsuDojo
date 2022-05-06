@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kaihatsudojo/const/drawer/drawerDecoration.dart';
 import 'package:kaihatsudojo/model/drawer/userData.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+
+import '../../const/icons.dart';
 
 class MyDrawer extends Drawer {
   final User user;
@@ -70,9 +73,9 @@ class MyDrawer extends Drawer {
           ListTile(
             title: const Text("検索"),
             subtitle: const Text("Instagramで探す"),
-            leading: const Padding(
+            leading:  const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(FontAwesomeIcons.instagram),
+              child: MyIcons.instagram,
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () => {print("Instagramで検索します")},
@@ -80,9 +83,9 @@ class MyDrawer extends Drawer {
           ListTile(
             title: const Text("検索"),
             subtitle: const Text("Twitterで探す"),
-            leading: const Padding(
+            leading:  const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(FontAwesomeIcons.twitter),
+              child: MyIcons.twitter,
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () => {print("Twitterで検索します")},
@@ -125,4 +128,7 @@ class MyDrawer extends Drawer {
       ),
     );
   }
+}
+
+class FontAwesomeIcons {
 }
