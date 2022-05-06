@@ -44,6 +44,7 @@ class MyDrawer extends Drawer {
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () {
+              Navigator.of(context).pop();
               Navigator.of(context).pushNamed('/note');
             },
           ),
@@ -106,6 +107,7 @@ class MyDrawer extends Drawer {
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: ()  {
+              Navigator.of(context).pop();
               Navigator.of(context).pushNamed('/guide');
             },
           ),
