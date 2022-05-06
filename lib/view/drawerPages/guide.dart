@@ -27,9 +27,9 @@ class Guide extends StatelessWidget {
                Image.asset('assets/images/appIcon.png'),
                Text("入力が終わったら✅ボタンを押し、料理の追加は完了です。"),
                Image.asset('assets/images/appIcon.png'),
-               myContainer(color: Colors.white),
-               myContainer(color: Colors.white),
-               const Text('料理名を選択する時',style: TextStyle(fontSize: 25,decoration: TextDecoration.underline)),
+               Container(
+                   width: double.infinity,
+                   child:Text('料理名を選択する時', textAlign: TextAlign.left,style: TextStyle(fontSize: 20,color:Colors.blueAccent,decoration: TextDecoration.underline))),
                myContainer(color: Colors.white),
                myContainer(color: Colors.white),
                myContainer(color: Colors.white),]
