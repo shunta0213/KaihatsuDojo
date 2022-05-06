@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kaihatsudojo/const/drawer/drawerDecoration.dart';
 
-import '../../model/drawer/userData.dart';
+import 'package:kaihatsudojo/model/drawer/userData.dart';
 
 class MyDrawer extends Drawer {
   final User user;
@@ -36,14 +36,16 @@ class MyDrawer extends Drawer {
             ),
           ),
           ListTile(
-            title: const Text("賞味期限が近い食材"),
+            title: const Text("メモ"),
             subtitle: const Text("入力"),
             leading: const Padding(
               padding: EdgeInsets.all(8.0), // マージンの設定
               child: Icon(Icons.edit), // アイコンの種類
             ),
             trailing: const Icon(Icons.arrow_forward),
-            onTap: () => {print("賞味期限が近い食材が入力されます")},
+            onTap: () {
+              Navigator.of(context).pushNamed('/note');
+            },
           ),
           ListTile(
             title: const Text("ぶたのちょきんばこ"),
@@ -103,7 +105,9 @@ class MyDrawer extends Drawer {
               child: Icon(Icons.help_outline),
             ),
             trailing: const Icon(Icons.arrow_forward),
-            onTap: () => {print("このアプリの使い方を見ます")},
+            onTap: ()  {
+              Navigator.of(context).pushNamed('/guide');
+            },
           ),
           ListTile(
             title: const Text("ログアウト"),

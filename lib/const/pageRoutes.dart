@@ -3,6 +3,8 @@ import 'package:kaihatsudojo/const/images.dart';
 
 import 'package:kaihatsudojo/view/authentication/singIn.dart';
 import 'package:kaihatsudojo/view/dishList/dishList.dart';
+import 'package:kaihatsudojo/view/drawerPages/guide.dart';
+import 'package:kaihatsudojo/view/drawerPages/note.dart';
 import 'package:kaihatsudojo/view/pages/top.dart';
 import 'package:kaihatsudojo/view/pages/addDishes.dart';
 import 'package:kaihatsudojo/model/userCheck.dart';
@@ -17,6 +19,8 @@ class PageRoutes {
     '/mainPage': (BuildContext context) => const TopPage(),
     '/addDishes': (BuildContext context) => const AddDishes(),
     '/viewPage': (BuildContext context) => const ViewPage(),
+
+    // For DishList
     '/cow':(BuildContext context) => ListPage(genre: '牛', icon: ImagesWidget.cow),
     '/pig':(BuildContext context) => ListPage(genre: '豚', icon: ImagesWidget.pig),
     '/chicken':(BuildContext context) => ListPage(genre: '鶏', icon: ImagesWidget.chicken),
@@ -25,6 +29,10 @@ class PageRoutes {
     '/soup':(BuildContext context) => ListPage(genre: '汁物', icon: ImagesWidget.soup),
     '/noodle':(BuildContext context) => ListPage(genre: '麺', icon: ImagesWidget.noodle),
     '/others':(BuildContext context) => ListPage(genre: 'その他', icon: ImagesWidget.others),
+
+    // For Drawer Page
+    '/note' : (BuildContext context) => const Note(),
+    '/guide' : (BuildContext context) => const Guide(),
 
   };
 }
