@@ -1,56 +1,75 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/const/drawer/drawerPagesDecoration/decoration.dart';
 
-class AddNote extends StatelessWidget {
-  const AddNote({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    String? _noteTitle;
-    String? _note;
-    String uid = FirebaseAuth.instance.currentUser!.uid;
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('メモを追加'),
-          TextFormField(
-            decoration: const InputDecoration(
-              hintText: 'タイトル',
-              labelText: 'タイトル',
-              border: OutlineInputBorder(),
+void showAddNoteDialog(
+    {required BuildContext context, required String uid}) async {
+  String? note;
+  String? noteTitle;
+  showDialog(
+      context: context,
+      builder: (context) {
+        return Column(
+          children: <Widget>[
+            AlertDialog(
+              title: const Text('メモを追加'),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextFormField(
+                          decoration:  InputDecoration(
+                            labelText: 'タイトル',
+                            hintText: null,
+                            border: AddNoteDecoration.inputBorder,
+                          ),
+                          onChanged: (String? value) {
+                            noteTitle = value;
+                          },
+                          textAlign: TextAlign.start,
+                        ),
+                        const SizedBox(height: 20,),
+                        TextFormField(
+                          decoration:  InputDecoration(
+                            hintText: 'ノート',
+                            labelText: 'ノート',
+                            border: AddNoteDecoration.inputBorder,
+                          ),
+                          minLines: 10,
+                          maxLines: 10,
+                          onChanged: (String? value) {
+                            note = value;
+                          },
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              actions: <Widget>[
+                ElevatedButton(
+                  child: const Text('追加'),
+                  onPressed: () async {
+                    await FirebaseFirestore.instance
+                        .collection(uid)
+                        .doc('note')
+                        .collection('note')
+                        .doc(noteTitle)
+                        .set({
+                      'title': noteTitle,
+                      'note': note,
+                    });
+                  },
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Icon(Icons.clear),
+                )
+              ],
             ),
-            onChanged: (String? value) {
-              _noteTitle = value;
-            },
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              hintText: 'ノート',
-              labelText: 'ノート',
-              border: OutlineInputBorder(),
-            ),
-            onChanged: (String? value) {
-              _note = value;
-            },
-          ),
-          ElevatedButton(
-            child: const Text('追加'),
-            onPressed: () async {
-              await FirebaseFirestore.instance.collection(uid).doc('note').collection('note').doc(_noteTitle).set({
-                'title' : _noteTitle,
-                'note' : _note,
-              });
-            },
-          ),
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).pop(),
-        child: const Icon(Icons.clear),
-      ),
-    );
-  }
+          ],
+        );
+      });
 }

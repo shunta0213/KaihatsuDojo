@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/view/drawerPages/note/addNote.dart';
 
 class Note extends StatelessWidget {
   const Note({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final uid = FirebaseAuth.instance.currentUser!.uid;
@@ -14,11 +16,17 @@ class Note extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const Text('Note'),
+                const Text(
+                  'メモ',
+                  style: TextStyle(
+                    fontSize: 50,
+                  ),
+                ),
                 ElevatedButton(
-                  onPressed: () => Navigator.of(context).pushNamed('/addNote'),
+                  onPressed: () =>
+                      showAddNoteDialog(context: context, uid: uid),
                   child: Row(children: const [
                     Icon(Icons.add),
                     Text('Add Note'),
@@ -27,10 +35,15 @@ class Note extends StatelessWidget {
               ],
             ),
           ),
-          const Text('メモ一覧'),
+          const Text('メモ一覧', style: TextStyle(fontSize: 20),),
           StreamBuilder(
-            stream: FirebaseFirestore.instance.collection(uid).doc('note').collection('note').snapshots(),
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            stream: FirebaseFirestore.instance
+                .collection(uid)
+                .doc('note')
+                .collection('note')
+                .snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
                 return const Text('Something went wrong');
               } else if (snapshot.connectionState == ConnectionState.waiting) {
@@ -39,7 +52,8 @@ class Note extends StatelessWidget {
               return Expanded(
                 flex: 4,
                 child: ListView(
-                  children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                  children:
+                      snapshot.data!.docs.map((DocumentSnapshot document) {
                     return ListTile(
                       title: Text(
                         document.get('title'),
