@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/drawer/drawerDecoration.dart';
 import 'package:kaihatsudojo/model/drawer/userData.dart';
 
-import '../../const/icons.dart';
+import 'package:kaihatsudojo/const/icons/icons.dart';
 
 class MyDrawer extends Drawer {
   final User user;
