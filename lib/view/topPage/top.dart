@@ -5,7 +5,8 @@ import 'package:kaihatsudojo/const/color.dart';
 import 'package:kaihatsudojo/const/header.dart';
 import 'package:kaihatsudojo/view/appBar/appBar.dart';
 import 'package:kaihatsudojo/view/drawer/drawer.dart';
-import 'viewPage.dart';
+import 'package:kaihatsudojo/view/topPage/todayDishList.dart';
+import '../pages/viewPage.dart';
 import 'package:intl/intl.dart';
 
 class TopPage extends StatefulWidget {
@@ -141,6 +142,7 @@ class _TopPageState extends State<TopPage> {
                 ),
               ],
             ),
+            const TopDishesList(),
           ],
         ),
       ),
