@@ -15,14 +15,14 @@ class TopDishesList extends StatelessWidget {
     final CollectionReference userDishes =
     FirebaseFirestore.instance.collection(uid);
 
-    return FutureBuilder<QuerySnapshot>(
-      future: userDishes
+    return StreamBuilder<QuerySnapshot>(
+      stream: userDishes
           .orderBy('date', descending: false)
-          .startAt([Timestamp.fromDate(today)]).get(),
+          .startAt([Timestamp.fromDate(today)]).snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return const Text('Something went wrong.');
-        } else if (snapshot.connectionState != ConnectionState.done) {
+        } else if (snapshot.connectionState == ConnectionState.waiting) {
           return const CircularProgressIndicator();
         }
 

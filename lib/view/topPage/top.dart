@@ -7,7 +7,6 @@ import 'package:kaihatsudojo/const/images.dart';
 import 'package:kaihatsudojo/view/appBar/appBar.dart';
 import 'package:kaihatsudojo/view/drawer/drawer.dart';
 import 'package:kaihatsudojo/view/topPage/todayDishList.dart';
-import '../pages/viewPage.dart';
 import 'package:intl/intl.dart';
 
 class TopPage extends StatefulWidget {
