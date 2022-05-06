@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:provider/provider.dart';
 
 import 'package:kaihatsudojo/const/pageRoutes/pageRoutes.dart';
 import 'package:kaihatsudojo/model/transitionBuilder.dart';
-import 'package:kaihatsudojo/model/userCheck.dart';
 
 
 void main() async {
