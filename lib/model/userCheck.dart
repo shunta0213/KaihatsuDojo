@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/view/authentication/singIn.dart';
-import 'package:kaihatsudojo/view/pages/top.dart';
+import 'package:kaihatsudojo/view/topPage/top.dart';
 
 final User? user = FirebaseAuth.instance.currentUser;
 

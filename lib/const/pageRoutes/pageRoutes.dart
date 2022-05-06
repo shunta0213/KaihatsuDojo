@@ -5,7 +5,7 @@ import 'package:kaihatsudojo/view/authentication/singIn.dart';
 import 'package:kaihatsudojo/view/dishList/dishList.dart';
 import 'package:kaihatsudojo/view/drawerPages/guide.dart';
 import 'package:kaihatsudojo/view/drawerPages/note.dart';
-import 'package:kaihatsudojo/view/pages/top.dart';
+import 'package:kaihatsudojo/view/topPage/top.dart';
 import 'package:kaihatsudojo/view/pages/addDishes.dart';
 import 'package:kaihatsudojo/model/userCheck.dart';
 import 'package:kaihatsudojo/view/pages/viewPage.dart';
