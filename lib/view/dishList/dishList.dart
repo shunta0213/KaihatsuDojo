@@ -1,10 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:kaihatsudojo/view/dishList/deleteDish.dart';
 
-class ListPage extends StatelessWidget {
+import 'package:kaihatsudojo/const/dishList/popupButtonItem.dart';
+import 'package:kaihatsudojo/view/dishList/updateDish.dart';
+
+class ListPage extends ConsumerWidget {
   final String? genre;
   final Widget? icon;
 
@@ -15,12 +19,13 @@ class ListPage extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final FirebaseFirestore db = FirebaseFirestore.instance;
     final String uid = auth.currentUser!.uid;
     final CollectionReference userDishes = db.collection(uid);
     final double deviceHeight = MediaQuery.of(context).size.height;
+    final DateTime now = DateTime.now();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -65,16 +70,16 @@ class ListPage extends StatelessWidget {
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     return ListTile(
                       tileColor: Colors.white,
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 10,
-                        child: const Icon(
+                        child: Icon(
                           Icons.circle,
                           size: 0,
                         ),
                       ),
                       title: Text(
                         document.get('name'),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
@@ -88,16 +93,38 @@ class ListPage extends StatelessWidget {
                                 .format(document.get('date').toDate())),
                             Text(document.get('notes') ?? 'なにもないよ！'),
                           ]),
-                      trailing: TextButton(
-                          onPressed: () async => deleteDish(
+                      trailing: PopupMenuButton(
+                        onSelected: (popupMenuItem result) {
+                          switch (result) {
+                            case popupMenuItem.none:
+                              break;
+                            case popupMenuItem.update:
+                              return updateDish(
                                 context: context,
                                 uid: uid,
                                 document: document,
-                              ),
-                          child: const Icon(
-                            Icons.delete_outline_sharp,
-                            color: Colors.grey,
-                          )),
+                                now: now,
+                              );
+                            case popupMenuItem.delete:
+                              return deleteDish(
+                                context: context,
+                                uid: uid,
+                                document: document,
+                              );
+                          }
+                        },
+                        itemBuilder: (BuildContext context) =>
+                            <PopupMenuEntry<popupMenuItem>>[
+                          const PopupMenuItem<popupMenuItem>(
+                            value: popupMenuItem.update,
+                            child: Text('作成日更新'),
+                          ),
+                          const PopupMenuItem<popupMenuItem>(
+                            value: popupMenuItem.delete,
+                            child: Text('消去'),
+                          ),
+                        ],
+                      ),
                       dense: true,
                       contentPadding: const EdgeInsets.all(8),
                     );
