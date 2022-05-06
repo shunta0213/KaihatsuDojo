@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/color.dart';
 import 'package:kaihatsudojo/const/header.dart';
+import 'package:kaihatsudojo/const/images.dart';
 import 'package:kaihatsudojo/view/appBar/appBar.dart';
 import 'package:kaihatsudojo/view/drawer/drawer.dart';
 import 'package:kaihatsudojo/view/topPage/todayDishList.dart';
@@ -127,12 +128,11 @@ class _TopPageState extends State<TopPage> {
                         child: Container(
                           height: 29,
                           width: 29,
-                          foregroundDecoration: const BoxDecoration(
+                          foregroundDecoration: BoxDecoration(
                             image: DecorationImage(
                               alignment: Alignment.center,
                               scale: 1,
-                              image: NetworkImage(
-                                  'https://cdn-icons-png.flaticon.com/512/6871/6871984.png'),
+                              image: MyImage.topPageDeco,
                             ),
                           ),
                         ),

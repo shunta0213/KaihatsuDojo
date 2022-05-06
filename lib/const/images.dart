@@ -20,6 +20,9 @@ class MyImage {
   static AssetImage noodle = const AssetImage('assets/images/logo_7.png');
   /// その他
   static AssetImage others = const AssetImage('assets/images/logo_8.png');
+
+  /// Top Page Decoration
+  static AssetImage topPageDeco = const AssetImage('assets/images/topPageDeco.png');
 }
 
 class ImagesWidget {

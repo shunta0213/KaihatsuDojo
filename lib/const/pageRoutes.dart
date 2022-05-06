@@ -4,7 +4,8 @@ import 'package:kaihatsudojo/const/images.dart';
 import 'package:kaihatsudojo/view/authentication/singIn.dart';
 import 'package:kaihatsudojo/view/dishList/dishList.dart';
 import 'package:kaihatsudojo/view/drawerPages/guide.dart';
-import 'package:kaihatsudojo/view/drawerPages/note.dart';
+import 'package:kaihatsudojo/view/drawerPages/note/addNote.dart';
+import 'package:kaihatsudojo/view/drawerPages/note/note.dart';
 import 'package:kaihatsudojo/view/topPage/top.dart';
 import 'package:kaihatsudojo/view/pages/addDishes.dart';
 import 'package:kaihatsudojo/model/userCheck.dart';
@@ -33,6 +34,9 @@ class PageRoutes {
     // For Drawer Page
     '/note' : (BuildContext context) => const Note(),
     '/guide' : (BuildContext context) => const Guide(),
+
+    // For Note Page
+    '/addNote' : (BuildContext context) => const AddNote(),
 
   };
 }
