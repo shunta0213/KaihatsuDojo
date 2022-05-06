@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/color.dart';
 import 'package:kaihatsudojo/const/header.dart';
-import 'package:kaihatsudojo/view/drawer/appBar.dart';
+import 'package:kaihatsudojo/view/appBar/appBar.dart';
 import 'package:kaihatsudojo/view/drawer/drawer.dart';
 import 'viewPage.dart';
 import 'package:intl/intl.dart';

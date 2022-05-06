@@ -8,7 +8,7 @@ import '../../model/drawer/userData.dart';
 class MyDrawer extends Drawer {
   final User user;
 
-  MyDrawer({required this.user, Key? key}) : super(key: key);
+  const MyDrawer({required this.user, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +104,17 @@ class MyDrawer extends Drawer {
             trailing: const Icon(Icons.arrow_forward),
             onTap: () => {print("このアプリの使い方を見ます")},
           ),
+          ListTile(
+            title: const Text("ログアウト"),
+            leading: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(Icons.logout),
+            ),
+            onTap: () async {
+              await FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushReplacementNamed('/loginPage');
+            },
+          )
         ]),
       ),
     );
