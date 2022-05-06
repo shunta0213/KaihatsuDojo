@@ -8,7 +8,7 @@ import '../../model/drawer/userData.dart';
 class MyDrawer extends Drawer {
   final User user;
 
-  MyDrawer({required this.user, Key? key}) : super(key: key);
+  const MyDrawer({required this.user, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
