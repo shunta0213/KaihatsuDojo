@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/view/drawerPages/note/addNote.dart';
 
 class Note extends StatelessWidget {
   const Note({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class Note extends StatelessWidget {
               children: [
                 const Text('Note'),
                 ElevatedButton(
-                  onPressed: () => Navigator.of(context).pushNamed('/addNote'),
+                  onPressed: () => showAddNoteDialog(context: context, uid: uid),
                   child: Row(children: const [
                     Icon(Icons.add),
                     Text('Add Note'),

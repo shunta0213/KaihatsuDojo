@@ -35,8 +35,6 @@ class PageRoutes {
     '/note' : (BuildContext context) => const Note(),
     '/guide' : (BuildContext context) => const Guide(),
 
-    // For Note Page
-    '/addNote' : (BuildContext context) => const AddNote(),
 
   };
 }
