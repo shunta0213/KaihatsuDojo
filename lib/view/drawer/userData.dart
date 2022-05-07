@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/model/drawer/getUserName.dart';
 
 class UserName extends StatelessWidget {
-  final CollectionReference<Map<String, dynamic>> userData;
-
-  const UserName({required this.userData, Key? key}) : super(key: key);
+  const UserName({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<DocumentSnapshot>(
-      future: userData.doc('userName').get(),
+      future: getUserName(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
@@ -22,7 +22,7 @@ class UserName extends StatelessWidget {
             snapshot.data!.data() as Map<String, dynamic>;
         return Text(
           data['userName'],
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.black87,
               fontSize: 22,
               fontWeight: FontWeight.bold,

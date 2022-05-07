@@ -16,12 +16,7 @@ void updateDish({
           actions: <Widget>[
             MaterialButton(
               onPressed: () async {
-                await FirebaseFirestore.instance
-                    .collection(uid)
-                    .doc(document.get('name'))
-                    .update({
-                  'date': now,
-                });
+                updateDish(context: context, uid: uid, document: document, now: now);
                 Navigator.of(context).pop();
               },
               child: Text(

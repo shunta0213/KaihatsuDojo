@@ -28,8 +28,8 @@ void signUp(BuildContext context, WidgetRef ref, String _password,
           .createUserWithEmailAndPassword(email: _email, password: _password);
       final uid = auth.currentUser!.uid;
       await FirebaseFirestore.instance
-          .collection(uid)
-          .doc('userName')
+          .collection('User')
+          .doc(uid)
           .set({'userName': userName});
       await Navigator.of(context).pushReplacementNamed('/mainPage');
     } on FirebaseAuthException catch (e) {

@@ -2,24 +2,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/drawer/drawerDecoration.dart';
-import 'package:kaihatsudojo/model/drawer/userData.dart';
+import 'package:kaihatsudojo/view/drawer/userData.dart';
 
 import 'package:kaihatsudojo/const/icons/icons.dart';
 
 class MyDrawer extends Drawer {
   final User user;
-
   const MyDrawer({required this.user, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final userData = FirebaseFirestore.instance.collection(user.uid);
-
     return Drawer(
       child: ListView(children: <Widget>[
         UserAccountsDrawerHeader(
           decoration: DrawerDecoration.boxDecoration,
-          accountName: UserName(userData: userData),
+          accountName: const UserName(),
           accountEmail: Text(
             user.email!,
             style: TextStyle(color: Colors.black87, fontSize: 14),

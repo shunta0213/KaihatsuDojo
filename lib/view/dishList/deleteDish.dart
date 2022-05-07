@@ -15,10 +15,7 @@ void deleteDish({
           actions: <Widget>[
             MaterialButton(
               onPressed: () async {
-                await FirebaseFirestore.instance
-                    .collection(uid)
-                    .doc(document.get('name'))
-                    .delete();
+                deleteDish(context: context, uid: uid, document: document);
                 Navigator.of(context).pop();
               },
               child: const Text(
