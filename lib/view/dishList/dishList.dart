@@ -27,6 +27,7 @@ class ListPage extends ConsumerWidget {
     final DateTime now = DateTime.now();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100),
         child: AppBar(
@@ -63,7 +64,7 @@ class ListPage extends ConsumerWidget {
               return Expanded(
                 flex: 1,
                 child: ListView(
-                  padding:  const EdgeInsets.only(left: 15),
+                  padding: const EdgeInsets.only(left: 15),
                   children:
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     return ListTile(
@@ -78,17 +79,18 @@ class ListPage extends ConsumerWidget {
                       title: Text(
                         document.get('name'),
                         style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'NotoSansJP'),
                       ),
                       minLeadingWidth: 26.5,
                       minVerticalPadding: 10,
                       subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(DateFormat('作成日 : yyyy/MM/dd')
-                                .format(document.get('date').toDate())),
+                            Text(DateFormat(
+                              '作成日 : yyyy/MM/dd',
+                            ).format(document.get('date').toDate())),
                             Text(document.get('notes') ?? 'なにもないよ！'),
                           ]),
                       trailing: PopupMenuButton(
@@ -115,11 +117,17 @@ class ListPage extends ConsumerWidget {
                             <PopupMenuEntry<popupMenuItem>>[
                           const PopupMenuItem<popupMenuItem>(
                             value: popupMenuItem.update,
-                            child: Text('作成日更新'),
+                            child: Text(
+                              '作成日更新',
+                              style: TextStyle(fontFamily: 'NotoSansJP'),
+                            ),
                           ),
                           const PopupMenuItem<popupMenuItem>(
                             value: popupMenuItem.delete,
-                            child: Text('消去'),
+                            child: Text(
+                              '消去',
+                              style: TextStyle(fontFamily: 'NotoSansJP'),
+                            ),
                           ),
                         ],
                       ),

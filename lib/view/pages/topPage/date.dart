@@ -36,7 +36,7 @@ class DateWidget extends StatelessWidget {
       ),
       width: 282.514,
       height: 178.539,
-      margin: const EdgeInsets.only(top: 35, left: 61, right: 40),
+      margin: const EdgeInsets.only(top: 35, left: 40, right: 40),
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -51,17 +51,17 @@ class DateWidget extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: const Alignment(-1, -0.042),
+            alignment: const Alignment(-0.97, -0.098),
             child: Text(
               date,
               style: const TextStyle(
-                  fontSize: 64,
+                  fontSize: 60,
                   color: Colors.black54,
                   fontWeight: FontWeight.w700),
             ),
           ),
           Align(
-            alignment: const Alignment(-0.78, 0.405),
+            alignment: const Alignment(-0.78, 0.42),
             child: Text(
               youbi,
               style: const TextStyle(

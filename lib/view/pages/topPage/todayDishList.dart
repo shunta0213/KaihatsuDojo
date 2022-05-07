@@ -44,6 +44,7 @@ class TopDishesList extends StatelessWidget {
                     document.get('name'),
                     style: const TextStyle(
                         fontSize: 15,
+                        fontFamily: 'NotoSansJP',
                         fontWeight: FontWeight.bold,
                         color: Colors.black87,
                         height: 0),
@@ -52,6 +53,7 @@ class TopDishesList extends StatelessWidget {
                   minVerticalPadding: 0,
                   subtitle: Text(
                     document.get('genre'),
+                    style: TextStyle(fontFamily: 'NotoSansJP'),
                   ),
                 ),
               );

@@ -21,6 +21,7 @@ class Note extends StatelessWidget {
         title: const Text('メモ',
             style: TextStyle(
                 color: Colors.black,
+                fontFamily: 'NotoSansJP',
                 fontSize: 18,
                 fontWeight: FontWeight.w500)),
       ),
@@ -50,14 +51,20 @@ class Note extends StatelessWidget {
                       child: ListTile(
                         title: Text(
                           document.get('title') ?? 'タイトルなし',
-                          style: const TextStyle(fontSize: 18),
+                          style: const TextStyle(
+                              fontSize: 14.5, fontFamily: 'NotoSansJP'),
                         ),
                         subtitle: Text(
                           document.get('note') ?? '本文なし',
+                          style: const TextStyle(fontFamily: 'NotoSansJP'),
                         ),
-                        trailing:  ElevatedButton(
-                          child: const Icon(Icons.restore_from_trash_outlined),
-                          onPressed: () => deleteNote(uid: uid, document: document, context: context),
+                        trailing: MaterialButton(
+                          child: const Icon(
+                            Icons.remove,
+                            color: Colors.grey,
+                          ),
+                          onPressed: () => deleteNote(
+                              uid: uid, document: document, context: context),
                         ),
                       ),
                     );

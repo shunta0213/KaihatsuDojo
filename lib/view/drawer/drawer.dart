@@ -31,8 +31,14 @@ class MyDrawer extends Drawer {
             ),
           ),
           ListTile(
-            title: const Text("メモ"),
-            subtitle: const Text("入力"),
+            title: const Text(
+              "メモ",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "入力",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0), // マージンの設定
               child: Icon(Icons.edit), // アイコンの種類
@@ -44,8 +50,14 @@ class MyDrawer extends Drawer {
             },
           ),
           ListTile(
-            title: const Text("ぶたのちょきんばこ"),
-            subtitle: const Text("今月の食費"),
+            title: const Text(
+              "ぶたのちょきんばこ",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "今月の食費",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Icon(Icons.savings),
@@ -54,8 +66,14 @@ class MyDrawer extends Drawer {
             onTap: () => {print("今月の食費を調べます")},
           ),
           ListTile(
-            title: const Text("検索"),
-            subtitle: const Text("クックパッドで探す"),
+            title: const Text(
+              "検索",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "クックパッドで探す",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Icon(Icons.search),
@@ -64,8 +82,14 @@ class MyDrawer extends Drawer {
             onTap: () => urlJump('https://cookpad.com/'),
           ),
           ListTile(
-            title: const Text("検索"),
-            subtitle: const Text("Instagramで探す"),
+            title: const Text(
+              "検索",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "Instagramで探す",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
               child: MyIcons.instagram,
@@ -74,8 +98,14 @@ class MyDrawer extends Drawer {
             onTap: () => urlJump('https://www.instagram.com/'),
           ),
           ListTile(
-            title: const Text("検索"),
-            subtitle: const Text("Twitterで探す"),
+            title: const Text(
+              "検索",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "Twitterで探す",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
               child: MyIcons.twitter,
@@ -84,8 +114,14 @@ class MyDrawer extends Drawer {
             onTap: () => urlJump('https://twitter.com/?lang=ja'),
           ),
           ListTile(
-            title: const Text("電子書籍"),
-            subtitle: const Text("オレンジページで探す"),
+            title: const Text(
+              "電子書籍",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "オレンジページで探す",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Icon(Icons.menu_book),
@@ -94,8 +130,14 @@ class MyDrawer extends Drawer {
             onTap: () => urlJump('https://www.orangepage.net/'),
           ),
           ListTile(
-            title: const Text("使い方ガイド"),
-            subtitle: const Text("このアプリの使い方"),
+            title: const Text(
+              "使い方ガイド",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "このアプリの使い方",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Icon(Icons.help_outline),
@@ -107,7 +149,10 @@ class MyDrawer extends Drawer {
             },
           ),
           ListTile(
-            title: const Text("ログアウト"),
+            title: const Text(
+              "ログアウト",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
             leading: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Icon(Icons.logout),
