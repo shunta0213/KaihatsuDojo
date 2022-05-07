@@ -3,13 +3,14 @@ import 'package:kaihatsudojo/const/images.dart';
 
 import 'package:kaihatsudojo/view/authentication/singIn.dart';
 import 'package:kaihatsudojo/view/dishList/dishList.dart';
-import 'package:kaihatsudojo/view/drawerPages/guide.dart';
-import 'package:kaihatsudojo/view/drawerPages/note/note.dart';
-import 'package:kaihatsudojo/view/topPage/top.dart';
+import 'package:kaihatsudojo/view/drawer/drawerPages/guide.dart';
+import 'package:kaihatsudojo/view/drawer/drawerPages/note/note.dart';
+import 'package:kaihatsudojo/view/pages/topPage/top.dart';
 import 'package:kaihatsudojo/view/pages/addDishes.dart';
 import 'package:kaihatsudojo/model/userCheck.dart';
 import 'package:kaihatsudojo/view/pages/viewPage.dart';
 import 'package:kaihatsudojo/view/authentication/singUp.dart';
+
 
 class PageRoutes {
   static Map<String, Widget Function(BuildContext)> pageRoutes = {

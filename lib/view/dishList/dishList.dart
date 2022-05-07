@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:kaihatsudojo/model/dishData.dart';
 
 import 'package:kaihatsudojo/const/dishList/popupButtonItem.dart';
+import 'package:kaihatsudojo/view/dishList/deleteDish.dart';
 
 class ListPage extends ConsumerWidget {
   final String? genre;
@@ -103,7 +104,7 @@ class ListPage extends ConsumerWidget {
                                 now: now,
                               );
                             case popupMenuItem.delete:
-                              return deleteDish(
+                              return deleteDishDialog(
                                 context: context,
                                 uid: uid,
                                 document: document,

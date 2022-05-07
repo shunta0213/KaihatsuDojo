@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/model/noteData.dart';
-import 'package:kaihatsudojo/view/drawerPages/note/addNote.dart';
+import 'package:kaihatsudojo/view/drawer/drawerPages/note/addNote.dart';
 
 class Note extends StatelessWidget {
   const Note({Key? key}) : super(key: key);
