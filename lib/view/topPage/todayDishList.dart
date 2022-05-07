@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/model/dishData.dart';
 
 class TopDishesList extends StatelessWidget {
   /// 今日登録したメニューを表示
@@ -8,17 +9,8 @@ class TopDishesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-    // 今日の０時０分
-    final today = DateTime(now.year, now.month, now.day, 0, 0, 0);
-    final uid = FirebaseAuth.instance.currentUser!.uid;
-    final CollectionReference userDishes =
-        FirebaseFirestore.instance.collection(uid);
-
     return StreamBuilder<QuerySnapshot>(
-      stream: userDishes
-          .orderBy('date', descending: false)
-          .startAt([Timestamp.fromDate(today)]).snapshots(),
+      stream: getTopPageDishListData(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return const Text('Something went wrong.');

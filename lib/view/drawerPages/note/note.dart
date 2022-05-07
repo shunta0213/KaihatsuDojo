@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kaihatsudojo/model/noteData.dart';
 import 'package:kaihatsudojo/view/drawerPages/note/addNote.dart';
 
 class Note extends StatelessWidget {
@@ -27,11 +28,7 @@ class Note extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection(uid)
-                .doc('note')
-                .collection('note')
-                .snapshots(),
+            stream: getNote(uid: uid),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {

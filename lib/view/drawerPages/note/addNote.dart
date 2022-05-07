@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:kaihatsudojo/const/drawer/drawerPageDecoration/decoration.dart';
+import 'package:kaihatsudojo/model/noteData.dart';
 
 void showAddNoteDialog(
     {required BuildContext context, required String uid}) async {
@@ -60,17 +60,7 @@ void showAddNoteDialog(
                     child: const Text('キャンセル')),
                 MaterialButton(
                   child: const Text('追加'),
-                  onPressed: () async {
-                    await FirebaseFirestore.instance
-                        .collection(uid)
-                        .doc('note')
-                        .collection('note')
-                        .doc(noteTitle)
-                        .set({
-                      'title': noteTitle,
-                      'note': note,
-                    });
-                  },
+                  onPressed: () => addNote(noteTitle: noteTitle, note: note, uid: uid),
                 ),
               ],
             ),

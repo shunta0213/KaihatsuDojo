@@ -3,10 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:kaihatsudojo/view/dishList/deleteDish.dart';
+import 'package:kaihatsudojo/model/dishData.dart';
 
 import 'package:kaihatsudojo/const/dishList/popupButtonItem.dart';
-import 'package:kaihatsudojo/view/dishList/updateDish.dart';
 
 class ListPage extends ConsumerWidget {
   final String? genre;
@@ -23,7 +22,6 @@ class ListPage extends ConsumerWidget {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final FirebaseFirestore db = FirebaseFirestore.instance;
     final String uid = auth.currentUser!.uid;
-    final CollectionReference userDishes = db.collection(uid);
     final double deviceHeight = MediaQuery.of(context).size.height;
     final DateTime now = DateTime.now();
 
@@ -35,9 +33,9 @@ class ListPage extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(top: 0, bottom: 0),
             child: Container(
-              padding: EdgeInsets.only(bottom: 13.2, top: 36),
+              padding: const EdgeInsets.only(bottom: 13.2, top: 36),
               decoration: const BoxDecoration(
-                gradient: const LinearGradient(
+                gradient: LinearGradient(
                     colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight),
@@ -53,7 +51,7 @@ class ListPage extends ConsumerWidget {
             ),
           ),
           StreamBuilder<QuerySnapshot>(
-            stream: userDishes.where('genre', isEqualTo: genre).snapshots(),
+            stream: getDishListPageData(genre: genre),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {

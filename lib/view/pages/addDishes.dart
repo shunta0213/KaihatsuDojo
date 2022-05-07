@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:kaihatsudojo/model/addDishes.dart';
+import 'package:kaihatsudojo/model/dishData.dart';
 
 class AddDishes extends StatefulWidget {
   const AddDishes({Key? key}) : super(key: key);
@@ -199,7 +199,7 @@ class _AddDishesState extends State<AddDishes> {
               child: MaterialButton(
                 onPressed: () {
                   addDishes(
-                    context,
+                    context: context,
                     uid: uid,
                     dishName: food!,
                     genre: isSelectedItem!,
