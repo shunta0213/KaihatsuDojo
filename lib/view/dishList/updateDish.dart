@@ -14,7 +14,7 @@ void updateDish({
           title: const Text('作成日更新'),
           content: Text('${document.get('name')}の作成日を変更しますか？'),
           actions: <Widget>[
-            ElevatedButton(
+            MaterialButton(
               onPressed: () async {
                 await FirebaseFirestore.instance
                     .collection(uid)
@@ -24,9 +24,15 @@ void updateDish({
                 });
                 Navigator.of(context).pop();
               },
-              child: Text('確認'),
+              child: Text(
+                '更新',
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16),
+              ),
             ),
-            ElevatedButton(
+            MaterialButton(
               onPressed: () => Navigator.of(context).pop(),
               child: Text('キャンセル'),
             ),

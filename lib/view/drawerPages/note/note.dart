@@ -9,29 +9,31 @@ class Note extends StatelessWidget {
   Widget build(BuildContext context) {
     final uid = FirebaseAuth.instance.currentUser!.uid;
     return Scaffold(
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomCenter)),
+        ),
+        title: const Text('メモ',
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.w500)),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Note'),
-                ElevatedButton(
-                  onPressed: () => showAddNoteDialog(context: context, uid: uid),
-                  child: Row(children: const [
-                    Icon(Icons.add),
-                    Text('Add Note'),
-                  ]),
-                )
-              ],
-            ),
-          ),
-          const Text('メモ一覧'),
           StreamBuilder(
-            stream: FirebaseFirestore.instance.collection(uid).doc('note').collection('note').snapshots(),
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            stream: FirebaseFirestore.instance
+                .collection(uid)
+                .doc('note')
+                .collection('note')
+                .snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
                 return const Text('Something went wrong');
               } else if (snapshot.connectionState == ConnectionState.waiting) {
@@ -40,12 +42,23 @@ class Note extends StatelessWidget {
               return Expanded(
                 flex: 4,
                 child: ListView(
-                  children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                    return ListTile(
-                      title: Text(
-                        document.get('title'),
+                  children:
+                      snapshot.data!.docs.map((DocumentSnapshot document) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(width: 0.6, color: Colors.grey),
+                        ),
                       ),
-                      subtitle: Text(document.get('note')),
+                      child: ListTile(
+                        title: Text(
+                          document.get('title'),
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        subtitle: Text(
+                          document.get('note'),
+                        ),
+                      ),
                     );
                   }).toList(),
                 ),
@@ -54,12 +67,28 @@ class Note extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.clear),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: 40),
+        child: FloatingActionButton(
+          elevation: 3,
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                  colors: [Color(0xFFFFECB3), Colors.amber],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomCenter),
+            ),
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+          ),
+          onPressed: () => showAddNoteDialog(context: context, uid: uid),
+        ),
       ),
     );
   }

@@ -13,7 +13,7 @@ class TopDishesList extends StatelessWidget {
     final today = DateTime(now.year, now.month, now.day, 0, 0, 0);
     final uid = FirebaseAuth.instance.currentUser!.uid;
     final CollectionReference userDishes =
-    FirebaseFirestore.instance.collection(uid);
+        FirebaseFirestore.instance.collection(uid);
 
     return StreamBuilder<QuerySnapshot>(
       stream: userDishes
@@ -27,31 +27,43 @@ class TopDishesList extends StatelessWidget {
         }
 
         return Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView(
-              children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    leading: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.circle,
-                            size: 10,
-                            color: Colors.black,
-                          ),
-                        ]),
-                    title: Text(document.get('name')),
-                    subtitle: Text(document.get('genre')),
+          flex: 1,
+          child: ListView(
+            padding: EdgeInsets.only(right: 30, left: 30, top: 16),
+            children: snapshot.data!.docs.map((DocumentSnapshot document) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                );
-              }).toList(),
-            ),
+                  leading: const Padding(
+                    padding: EdgeInsets.only(top: 4.1),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.black26,
+                      radius: 7,
+                      child: Icon(
+                        Icons.circle,
+                        size: 0,
+                      ),
+                    ),
+                  ),
+                  title: Text(
+                    document.get('name'),
+                    style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                        height: 0),
+                  ),
+                  minLeadingWidth: 8,
+                  minVerticalPadding: 0,
+                  subtitle: Text(
+                    document.get('genre'),
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         );
       },

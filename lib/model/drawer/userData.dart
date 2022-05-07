@@ -20,7 +20,14 @@ class UserName extends StatelessWidget {
         }
         Map<String, dynamic> data =
             snapshot.data!.data() as Map<String, dynamic>;
-        return Text(data['userName']);
+        return Text(
+          data['userName'],
+          style: TextStyle(
+              color: Colors.black87,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              height: 0.3),
+        );
       },
     );
   }

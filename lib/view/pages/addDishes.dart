@@ -24,34 +24,47 @@ class _AddDishesState extends State<AddDishes> {
     final String uid = FirebaseAuth.instance.currentUser!.uid;
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomCenter)),
+        ),
+        title: const Text('                メニュー追加',
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.w500)),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 40,
+              height: 110,
             ),
             const Text(
               'ジャンル',
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 16, color: Colors.black87),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 0, bottom: 30),
-              width: 200,
-              height: 70,
+              margin: const EdgeInsets.only(top: 0, bottom: 8),
+              width: 300,
+              height: 61,
               child: DropdownButtonFormField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(30.0),
-                    ),
-                    borderSide: BorderSide(
-                      color: Colors.orange,
-                    ),
-                  ),
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide:
+                          const BorderSide(color: Colors.black12, width: 5.5)),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: Color(0xFFFFE082),
+                        width: 5,
+                      )),
                 ),
                 items: const [
                   DropdownMenuItem(
@@ -97,25 +110,23 @@ class _AddDishesState extends State<AddDishes> {
             ),
             const Text(
               'メニュー名',
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 15.4, color: Colors.black87),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 0, bottom: 30),
-              width: 200,
+              margin: const EdgeInsets.only(top: 0, bottom: 28),
+              width: 300,
               height: 60,
               child: TextFormField(
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: const BorderSide(
-                          color: Colors.orange,
-                        )),
+                            color: Colors.black12, width: 5.5)),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: const BorderSide(
-                          color: Colors.orange,
+                          color: Color(0xFFFFE082),
+                          width: 5,
                         )),
                   ),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -131,27 +142,31 @@ class _AddDishesState extends State<AddDishes> {
             ),
             const Text(
               'メモ',
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 17, color: Colors.black87),
             ),
-            Padding(
-              padding: const EdgeInsets.all(40),
+            Container(
+              margin: const EdgeInsets.only(
+                  left: 45, right: 45, bottom: 55, top: 2.5),
               child: TextFormField(
                   keyboardType: TextInputType.multiline,
-                  maxLines: 6,
-                  minLines: 3,
-                  decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.all(30),
-                    prefixIcon: Icon(
+                  maxLines: 7,
+                  minLines: 5,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.all(30),
+                    prefixIcon: const Icon(
                       Icons.message,
-                      color: Colors.black,
+                      color: Colors.black45,
                     ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.orange,
-                      ),
-                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide:
+                            const BorderSide(color: Colors.black12, width: 6)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(
+                          color: Color(0xFFFFE082),
+                          width: 5,
+                        )),
                   ),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) {
@@ -164,34 +179,51 @@ class _AddDishesState extends State<AddDishes> {
                     message = text;
                   }),
             ),
-            MaterialButton(
-              onPressed: () {
-                addDishes(
-                  context,
-                  uid: uid,
-                  dishName: food!,
-                  genre: isSelectedItem!,
-                  notes: message!,
-                  now: now,
-                );
-              },
-              child: const Icon(Icons.check),
-              padding: const EdgeInsets.all(16),
-              color: Colors.orange,
-              textColor: Colors.white,
-              shape: const CircleBorder(),
+            Container(
+              height: 58,
+              width: 58,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  colors: [Colors.greenAccent, Colors.green],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    spreadRadius: 0.00005,
+                    blurRadius: 10,
+                    offset: Offset(5.59, 7.5),
+                  ),
+                ],
+              ),
+              child: MaterialButton(
+                onPressed: () {
+                  addDishes(
+                    context,
+                    uid: uid,
+                    dishName: food!,
+                    genre: isSelectedItem!,
+                    notes: message!,
+                    now: now,
+                  );
+                },
+                child: const Icon(Icons.check),
+                padding: const EdgeInsets.all(16),
+                textColor: Colors.white,
+                shape: const CircleBorder(),
+              ),
             ),
           ],
         ),
-      ),
-
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        padding: const EdgeInsets.only(bottom: 10.0),
-        child: FloatingActionButton(
-          child: const Icon(Icons.clear),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        // ),
+        //勘違いしそう
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        // floatingActionButton: Container(
+        //   padding: const EdgeInsets.only(bottom: 10.0),
+        //   child: FloatingActionButton(
+        //     child: const Icon(Icons.clear),
+        //     onPressed: () => Navigator.of(context).pop(),
+        //   ),
       ),
     );
   }

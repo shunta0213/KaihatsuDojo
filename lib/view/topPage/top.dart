@@ -63,6 +63,7 @@ class _TopPageState extends State<TopPage> {
     String year = outputFormat3.format(now);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -107,13 +108,13 @@ class _TopPageState extends State<TopPage> {
                         child: Text(
                           date,
                           style: const TextStyle(
-                              fontSize: 66,
+                              fontSize: 64,
                               color: Colors.black54,
                               fontWeight: FontWeight.w700),
                         ),
                       ),
                       Align(
-                        alignment: const Alignment(-0.78, 0.415),
+                        alignment: const Alignment(-0.78, 0.405),
                         child: Text(
                           youbi,
                           style: const TextStyle(
@@ -156,11 +157,21 @@ class _TopPageState extends State<TopPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        elevation: 2,
-        backgroundColor: const Color(0xFFFFD54F),
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
+        elevation: 3,
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+                colors: [Color(0xFFFFECB3), Colors.amber],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomCenter),
+          ),
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
         onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),

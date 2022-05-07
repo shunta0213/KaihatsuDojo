@@ -12,6 +12,9 @@ void showAddNoteDialog(
       builder: (context) {
         return Column(
           children: <Widget>[
+            SizedBox(
+              height: 90,
+            ),
             AlertDialog(
               title: const Text('メモを追加'),
               content: SingleChildScrollView(
@@ -52,11 +55,10 @@ void showAddNoteDialog(
                 ),
               ),
               actions: <Widget>[
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: const Icon(Icons.clear),
-                ),
-                ElevatedButton(
+                MaterialButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('キャンセル')),
+                MaterialButton(
                   child: const Text('追加'),
                   onPressed: () async {
                     await FirebaseFirestore.instance
