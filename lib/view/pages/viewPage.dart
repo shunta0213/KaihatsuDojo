@@ -331,11 +331,21 @@ class _ViewPageState extends State<ViewPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFFFD54F),
-        elevation: 2,
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
+        elevation: 3,
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+                colors: [Color(0xFFFFECB3), Colors.amber],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomCenter),
+          ),
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
         onPressed: () => Navigator.pushNamed(context, '/addDishes'),
       ),

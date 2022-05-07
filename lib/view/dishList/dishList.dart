@@ -67,7 +67,7 @@ class ListPage extends ConsumerWidget {
                 child: ListView(
                   padding: EdgeInsets.only(left: 15),
                   children:
-                  snapshot.data!.docs.map((DocumentSnapshot document) {
+                      snapshot.data!.docs.map((DocumentSnapshot document) {
                     return ListTile(
                       tileColor: Colors.white,
                       leading: const CircleAvatar(
@@ -114,7 +114,7 @@ class ListPage extends ConsumerWidget {
                           }
                         },
                         itemBuilder: (BuildContext context) =>
-                        <PopupMenuEntry<popupMenuItem>>[
+                            <PopupMenuEntry<popupMenuItem>>[
                           const PopupMenuItem<popupMenuItem>(
                             value: popupMenuItem.update,
                             child: Text('作成日更新'),
@@ -139,8 +139,22 @@ class ListPage extends ConsumerWidget {
       floatingActionButton: Container(
         padding: const EdgeInsets.only(bottom: 10),
         child: FloatingActionButton(
-          backgroundColor: Color(0xFFFFD54F),
-          child: const Icon(Icons.clear, color: Colors.white),
+          elevation: 3,
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                  colors: [Color(0xFFFFECB3), Colors.amber],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomCenter),
+            ),
+            child: const Icon(
+              Icons.clear,
+              color: Colors.white,
+            ),
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
