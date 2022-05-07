@@ -42,7 +42,7 @@ class Note extends StatelessWidget {
                   children:
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     return Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         border: Border(
                           bottom: BorderSide(width: 0.6, color: Colors.grey),
                         ),
@@ -50,10 +50,14 @@ class Note extends StatelessWidget {
                       child: ListTile(
                         title: Text(
                           document.get('title') ?? 'タイトルなし',
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                         subtitle: Text(
                           document.get('note') ?? '本文なし',
+                        ),
+                        trailing:  ElevatedButton(
+                          child: const Icon(Icons.restore_from_trash_outlined),
+                          onPressed: () => deleteNote(uid: uid, document: document, context: context),
                         ),
                       ),
                     );
@@ -66,7 +70,7 @@ class Note extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(bottom: 40),
+        padding: const EdgeInsets.only(bottom: 40),
         child: FloatingActionButton(
           elevation: 3,
           child: Container(
