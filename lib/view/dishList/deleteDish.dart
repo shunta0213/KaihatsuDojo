@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-void deleteDish({
+import '../../model/dishData.dart';
+
+void deleteDishDialog({
   required BuildContext context,
   required String uid,
   required DocumentSnapshot document,
