@@ -72,8 +72,12 @@ class _TopPageState extends State<TopPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
-          _currentIndex = index;
-          Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+          if (index == _currentIndex) {
+            null;
+          } else {
+            _currentIndex = index;
+            Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+          }
         },
         items: barItem,
       ),
