@@ -13,7 +13,7 @@ void deleteDish({
           title: const Text('消去確認'),
           content: Text('${document.get('name')}を消去しますか？'),
           actions: <Widget>[
-            ElevatedButton(
+            MaterialButton(
               onPressed: () async {
                 await FirebaseFirestore.instance
                     .collection(uid)
@@ -21,11 +21,15 @@ void deleteDish({
                     .delete();
                 Navigator.of(context).pop();
               },
-              child: Text('確認'),
+              child: const Text(
+                '消去',
+                style: TextStyle(
+                    color: Colors.redAccent, fontWeight: FontWeight.bold),
+              ),
             ),
-            ElevatedButton(
+            MaterialButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text('キャンセル'),
+              child: const Text('キャンセル'),
             ),
           ],
         );

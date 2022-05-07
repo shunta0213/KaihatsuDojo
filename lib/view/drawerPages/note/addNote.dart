@@ -59,10 +59,7 @@ void showAddNoteDialog(
                     onPressed: () => Navigator.of(context).pop(),
                     child: const Text('キャンセル')),
                 MaterialButton(
-                  child: const Text(
-                    '追加',
-                    style: TextStyle(color: Colors.blue, fontSize: 18),
-                  ),
+                  child: const Text('追加'),
                   onPressed: () async {
                     await FirebaseFirestore.instance
                         .collection(uid)

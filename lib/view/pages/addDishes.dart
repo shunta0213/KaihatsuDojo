@@ -58,7 +58,7 @@ class _AddDishesState extends State<AddDishes> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          const BorderSide(color: Colors.black12, width: 6)),
+                          const BorderSide(color: Colors.black12, width: 5.5)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide: const BorderSide(
@@ -110,7 +110,7 @@ class _AddDishesState extends State<AddDishes> {
             ),
             const Text(
               'メニュー名',
-              style: TextStyle(fontSize: 15, color: Colors.black87),
+              style: TextStyle(fontSize: 15.4, color: Colors.black87),
             ),
             Container(
               margin: const EdgeInsets.only(top: 0, bottom: 28),
@@ -120,8 +120,8 @@ class _AddDishesState extends State<AddDishes> {
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide:
-                            const BorderSide(color: Colors.black12, width: 6)),
+                        borderSide: const BorderSide(
+                            color: Colors.black12, width: 5.5)),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: const BorderSide(
@@ -145,7 +145,8 @@ class _AddDishesState extends State<AddDishes> {
               style: TextStyle(fontSize: 17, color: Colors.black87),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 45, right: 45, bottom: 55),
+              margin: const EdgeInsets.only(
+                  left: 45, right: 45, bottom: 55, top: 2.5),
               child: TextFormField(
                   keyboardType: TextInputType.multiline,
                   maxLines: 7,
