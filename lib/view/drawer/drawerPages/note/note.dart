@@ -61,9 +61,9 @@ class Note extends StatelessWidget {
                           document.get('note') ?? '本文なし',
                           style: const TextStyle(fontFamily: 'NotoSansJP'),
                         ),
-                        trailing: MaterialButton(
-                          child: const Icon(
-                            Icons.delete,
+                        trailing: IconButton(
+                          icon: const Icon(
+                            Icons.delete_outline_sharp,
                             color: Colors.grey,
                           ),
                           onPressed: () => deleteNoteDialog(
