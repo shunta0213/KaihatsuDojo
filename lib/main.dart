@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kaihatsudojo/const/pageRoutes/pageRoutes.dart';
 import 'package:kaihatsudojo/model/transitionBuilder.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -23,6 +22,7 @@ class MyApp extends StatelessWidget {
       // for debug
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'NotoSansJP',
         primarySwatch: Colors.amber,
         backgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
@@ -31,10 +31,9 @@ class MyApp extends StatelessWidget {
         ),
         // PageTransitionCustomize
         pageTransitionsTheme: const PageTransitionsTheme(
-          builders: <TargetPlatform, PageTransitionsBuilder>{
-            TargetPlatform.android: CustomTransitionBuilder(),
-          }
-        ),
+            builders: <TargetPlatform, PageTransitionsBuilder>{
+              TargetPlatform.android: CustomTransitionBuilder(),
+            }),
       ),
       routes: PageRoutes.pageRoutes,
     );

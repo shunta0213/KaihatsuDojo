@@ -16,7 +16,10 @@ void showAddNoteDialog(
               height: 90,
             ),
             AlertDialog(
-              title: const Text('メモを追加'),
+              title: const Text(
+                'メモを追加',
+                style: TextStyle(fontFamily: 'NotoSansJP'),
+              ),
               content: SingleChildScrollView(
                 child: ListBody(
                   children: <Widget>[
@@ -57,10 +60,20 @@ void showAddNoteDialog(
               actions: <Widget>[
                 MaterialButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: const Text('キャンセル')),
+                    child: const Text(
+                      'キャンセル',
+                      style: TextStyle(fontFamily: 'NotoSansJP'),
+                    )),
                 MaterialButton(
-                  child: const Text('追加'),
-                  onPressed: () => addNote(noteTitle: noteTitle, note: note, uid: uid),
+                  child: const Text(
+                    '追加',
+                    style: TextStyle(
+                        fontFamily: 'NotoSansJP',
+                        color: Colors.blue,
+                        fontSize: 15),
+                  ),
+                  onPressed: () =>
+                      addNote(noteTitle: noteTitle, note: note, uid: uid),
                 ),
               ],
             ),

@@ -12,8 +12,14 @@ void deleteDishDialog({
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('消去確認'),
-          content: Text('${document.get('name')}を消去しますか？'),
+          title: const Text(
+            '消去確認',
+            style: TextStyle(fontFamily: 'NotoSansJP'),
+          ),
+          content: Text(
+            '${document.get('name')}を消去しますか？',
+            style: TextStyle(fontFamily: 'NotoSansJP'),
+          ),
           actions: <Widget>[
             MaterialButton(
               onPressed: () async {
@@ -23,12 +29,17 @@ void deleteDishDialog({
               child: const Text(
                 '消去',
                 style: TextStyle(
-                    color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    color: Colors.redAccent,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'NotoSansJP'),
               ),
             ),
             MaterialButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('キャンセル'),
+              child: const Text(
+                'キャンセル',
+                style: TextStyle(fontFamily: 'NotoSansJP'),
+              ),
             ),
           ],
         );
