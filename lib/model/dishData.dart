@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 
 void addDishes({
   required BuildContext context,
-  required uid,
+  required  uid,
   required String dishName,
   required String genre,
   required String notes,
