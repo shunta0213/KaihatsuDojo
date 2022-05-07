@@ -3,9 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/model/noteData.dart';
 import 'package:kaihatsudojo/view/drawer/drawerPages/note/addNote.dart';
+import 'package:kaihatsudojo/view/drawer/drawerPages/note/deleteNote.dart';
 
 class Note extends StatelessWidget {
   const Note({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final uid = FirebaseAuth.instance.currentUser!.uid;
@@ -52,7 +54,8 @@ class Note extends StatelessWidget {
                         title: Text(
                           document.get('title') ?? 'タイトルなし',
                           style: const TextStyle(
-                              fontSize: 14.5, fontFamily: 'NotoSansJP'),
+                            fontSize: 14.5,
+                          ),
                         ),
                         subtitle: Text(
                           document.get('note') ?? '本文なし',
@@ -60,10 +63,10 @@ class Note extends StatelessWidget {
                         ),
                         trailing: MaterialButton(
                           child: const Icon(
-                            Icons.remove,
+                            Icons.delete,
                             color: Colors.grey,
                           ),
-                          onPressed: () => deleteNote(
+                          onPressed: () => deleteNoteDialog(
                               uid: uid, document: document, context: context),
                         ),
                       ),

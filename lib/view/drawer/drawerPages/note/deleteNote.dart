@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'package:kaihatsudojo/model/dishData.dart';
+import 'package:kaihatsudojo/model/noteData.dart';
 
-void deleteDishDialog({
+void deleteNoteDialog({
   required BuildContext context,
   required String uid,
   required DocumentSnapshot document,
@@ -14,15 +14,14 @@ void deleteDishDialog({
         return AlertDialog(
           title: const Text(
             '消去確認',
-            style: TextStyle(fontFamily: 'NotoSansJP'),
           ),
           content: Text(
-            '${document.get('name')}を消去しますか？',
+            '${document.get('title')}を消去しますか？',
           ),
           actions: <Widget>[
             MaterialButton(
               onPressed: () async {
-                deleteDish(context: context, uid: uid, document: document);
+                deleteNote(context: context, uid: uid, document: document);
               },
               child: const Text(
                 '消去',
