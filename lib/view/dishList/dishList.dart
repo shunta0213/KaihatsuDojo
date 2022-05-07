@@ -7,6 +7,7 @@ import 'package:kaihatsudojo/model/dishData.dart';
 
 import 'package:kaihatsudojo/const/dishList/popupButtonItem.dart';
 import 'package:kaihatsudojo/view/dishList/deleteDish.dart';
+import 'package:kaihatsudojo/view/dishList/updateDish.dart';
 
 class ListPage extends ConsumerWidget {
   final String? genre;
@@ -23,7 +24,6 @@ class ListPage extends ConsumerWidget {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final FirebaseFirestore db = FirebaseFirestore.instance;
     final String uid = auth.currentUser!.uid;
-    final double deviceHeight = MediaQuery.of(context).size.height;
     final DateTime now = DateTime.now();
 
     return Scaffold(
@@ -99,7 +99,7 @@ class ListPage extends ConsumerWidget {
                             case popupMenuItem.none:
                               break;
                             case popupMenuItem.update:
-                              return updateDish(
+                              return updateDishDialog(
                                 context: context,
                                 uid: uid,
                                 document: document,

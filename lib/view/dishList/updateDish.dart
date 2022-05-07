@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-void updateDish({
+import 'package:kaihatsudojo/model/dishData.dart';
+
+void updateDishDialog({
   required BuildContext context,
   required String uid,
   required DocumentSnapshot document,
