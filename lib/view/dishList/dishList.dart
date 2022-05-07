@@ -26,30 +26,29 @@ class ListPage extends ConsumerWidget {
     final DateTime now = DateTime.now();
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 0, bottom: 0),
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 13.2, top: 36),
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight),
-                // border: Border(
-                //   bottom: BorderSide(color: Color(0xFFFFD54F), width: 0.8),
-                // ),
-              ),
-              height: deviceHeight * 0.155,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: AppBar(
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color(0xFFFFFDE7), Color(0xFFFFECB3)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomCenter),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 36, bottom: 14),
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: icon,
               ),
             ),
           ),
+        ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
           StreamBuilder<QuerySnapshot>(
             stream: getDishListPageData(genre: genre),
             builder:
@@ -63,7 +62,7 @@ class ListPage extends ConsumerWidget {
               return Expanded(
                 flex: 1,
                 child: ListView(
-                  padding: EdgeInsets.only(left: 15),
+                  padding:  const EdgeInsets.only(left: 15),
                   children:
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     return ListTile(
@@ -133,29 +132,28 @@ class ListPage extends ConsumerWidget {
           ),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: FloatingActionButton(
-          elevation: 3,
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                  colors: [Color(0xFFFFECB3), Colors.amber],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomCenter),
-            ),
-            child: const Icon(
-              Icons.clear,
-              color: Colors.white,
-            ),
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: Container(
+      //   padding: const EdgeInsets.only(bottom: 10),
+      //   child: FloatingActionButton(
+      //     elevation: 3,
+      //     child: Container(
+      //       height: double.infinity,
+      //       width: double.infinity,
+      //       decoration: const BoxDecoration(
+      //         shape: BoxShape.circle,
+      //         gradient: LinearGradient(
+      //             colors: [Color(0xFFFFECB3), Colors.amber],
+      //             begin: Alignment.topLeft,
+      //             end: Alignment.bottomCenter),
+      //       ),
+      //       child: const Icon(
+      //         Icons.clear,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //     onPressed: () => Navigator.of(context).pop(),
+      //   ),
     );
   }
 }
