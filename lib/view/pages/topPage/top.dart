@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kaihatsudojo/const/images.dart';
 import 'package:kaihatsudojo/view/drawer/drawer.dart';
 import 'package:kaihatsudojo/view/pages/topPage/date.dart';
 import 'package:kaihatsudojo/view/pages/topPage/todayDishList.dart';
@@ -60,14 +58,12 @@ class _TopPageState extends State<TopPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(),
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                DateWidget(year: year, youbi: youbi, date: date),
-              ],
-            ),
+            DateWidget(year: year, youbi: youbi, date: date),
             const TopDishesList(),
           ],
         ),
