@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/color.dart';
-import 'package:kaihatsudojo/const/header.dart';
 import 'package:kaihatsudojo/const/images.dart';
 
 class ViewPage extends StatefulWidget {
@@ -83,7 +82,7 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      alignment: Alignment(0, 0.23),
+                      alignment: const Alignment(0, 0.23),
                       scale: 8.4,
                       image: MyImage.pig,
                     ),
@@ -153,7 +152,7 @@ class _ViewPageState extends State<ViewPage> {
                     ],
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      alignment: Alignment(0.15, 0.27),
+                      alignment: const Alignment(0.15, 0.27),
                       scale: 8.55,
                       image: MyImage.fish,
                     ),
@@ -309,8 +308,12 @@ class _ViewPageState extends State<ViewPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
-          _currentIndex = index;
-          Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+          if (_currentIndex == index) {
+            null;
+          } else {
+            _currentIndex = index;
+            Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+          }
         },
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
