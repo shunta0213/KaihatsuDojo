@@ -57,7 +57,10 @@ void showAddNoteDialog(
                     child: const Text('キャンセル')),
                 MaterialButton(
                   child: const Text('追加'),
-                  onPressed: () => addNote(noteTitle: noteTitle, note: note, uid: uid),
+                  onPressed: () {
+                    addNote(noteTitle: noteTitle, note: note, uid: uid);
+                    Navigator.of(context).pop();
+                  },
                 ),
               ],
             ),
