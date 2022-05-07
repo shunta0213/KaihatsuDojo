@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 
 void addDishes({
   required BuildContext context,
-  required  uid,
+  required uid,
   required String dishName,
   required String genre,
   required String notes,
@@ -60,7 +60,6 @@ void updateDish({
 
 /// TopPageの料理データ取得
 /// 今日の０時０分以降に登録された料理を表示する。
-
 Stream<QuerySnapshot<Object?>> getTopPageDishListData() {
   final String uid = FirebaseAuth.instance.currentUser!.uid;
   final now = DateTime.now();
@@ -83,6 +82,7 @@ Stream<QuerySnapshot<Object?>> getDishListPageData({
       .collection('Data')
       .doc('Dishes')
       .collection(uid)
+      .orderBy('date', descending: true)
       .where('genre', isEqualTo: genre)
       .snapshots();
 }
