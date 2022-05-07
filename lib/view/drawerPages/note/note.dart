@@ -52,11 +52,11 @@ class Note extends StatelessWidget {
                       ),
                       child: ListTile(
                         title: Text(
-                          document.get('title'),
+                          document.get('title') ?? 'タイトルなし',
                           style: TextStyle(fontSize: 18),
                         ),
                         subtitle: Text(
-                          document.get('note'),
+                          document.get('note') ?? '本文なし',
                         ),
                       ),
                     );
