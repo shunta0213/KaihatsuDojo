@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/drawer/drawerDecoration.dart';
+import 'package:kaihatsudojo/model/drawer/urlJump.dart';
 import 'package:kaihatsudojo/view/drawer/userData.dart';
 
 import 'package:kaihatsudojo/const/icons/icons.dart';
@@ -58,7 +59,7 @@ class MyDrawer extends Drawer {
             child: Icon(Icons.search),
           ),
           trailing: const Icon(Icons.arrow_forward),
-          onTap: () => {print("クックパッドで検索します")},
+          onTap: () => urlJump('https://cookpad.com/'),
         ),
         ListTile(
           title: const Text("検索"),
@@ -68,7 +69,7 @@ class MyDrawer extends Drawer {
             child: MyIcons.instagram,
           ),
           trailing: const Icon(Icons.arrow_forward),
-          onTap: () => {print("Instagramで検索します")},
+          onTap: () => urlJump('https://www.instagram.com/'),
         ),
         ListTile(
           title: const Text("検索"),
@@ -78,7 +79,7 @@ class MyDrawer extends Drawer {
             child: MyIcons.twitter,
           ),
           trailing: const Icon(Icons.arrow_forward),
-          onTap: () => {print("Twitterで検索します")},
+          onTap: () => urlJump('https://twitter.com/?lang=ja'),
         ),
         ListTile(
           title: const Text("電子書籍"),
@@ -88,7 +89,7 @@ class MyDrawer extends Drawer {
             child: Icon(Icons.menu_book),
           ),
           trailing: const Icon(Icons.arrow_forward),
-          onTap: () => {print("オレンジページで検索します")},
+          onTap: () => urlJump('https://www.orangepage.net/'),
         ),
         ListTile(
           title: const Text("使い方ガイド"),
