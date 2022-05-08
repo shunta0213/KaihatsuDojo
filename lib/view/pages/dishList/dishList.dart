@@ -113,7 +113,10 @@ class ListPage extends ConsumerWidget {
                                 document: document,
                               );
                             case popupMenuItem.edit:
-                              return showEditDishDialog(context: context, document: document);
+                              return showEditDishDialog(
+                                context: context,
+                                document: document,
+                              );
                           }
                         },
                         itemBuilder: (BuildContext context) =>
@@ -132,6 +135,10 @@ class ListPage extends ConsumerWidget {
                               style: TextStyle(fontFamily: 'NotoSansJP'),
                             ),
                           ),
+                          const PopupMenuItem<popupMenuItem>(
+                            value: popupMenuItem.edit,
+                            child: Text('編集'),
+                          )
                         ],
                       ),
                       dense: true,
