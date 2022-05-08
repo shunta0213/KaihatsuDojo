@@ -5,6 +5,8 @@ import 'package:kaihatsudojo/model/noteData.dart';
 import 'package:kaihatsudojo/view/drawer/drawerPages/note/addNote.dart';
 import 'package:kaihatsudojo/view/drawer/drawerPages/note/deleteNote.dart';
 
+/// ノート表示ページ
+
 class Note extends StatelessWidget {
   const Note({Key? key}) : super(key: key);
 
