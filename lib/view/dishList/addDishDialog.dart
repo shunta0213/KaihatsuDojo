@@ -20,7 +20,8 @@ void showDishDoubleCheckDialog({
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            '$dishNameはすでに存在します',
+            '\"$dishName\"はすでに保存されていますが、上書きしますか？',
+            style: TextStyle(fontSize: 15),
           ),
           actions: <Widget>[
             MaterialButton(
@@ -35,10 +36,10 @@ void showDishDoubleCheckDialog({
                 Navigator.of(context).pop();
               },
               child: const Text(
-                '更新',
+                '上書き',
                 style: TextStyle(
-                  color: Colors.redAccent,
-                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                  fontSize: 16,
                 ),
               ),
             ),
