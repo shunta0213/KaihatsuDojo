@@ -22,12 +22,13 @@ void deleteNoteDialog({
             MaterialButton(
               onPressed: () async {
                 deleteNote(context: context, uid: uid, document: document);
+                Navigator.of(context).pop();
               },
               child: const Text(
                 '消去',
                 style: TextStyle(
-                    color: Colors.redAccent,
-                    fontWeight: FontWeight.bold,
+                  color: Colors.redAccent,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
