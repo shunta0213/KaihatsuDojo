@@ -6,8 +6,8 @@ import 'package:intl/intl.dart';
 import 'package:kaihatsudojo/model/dishData.dart';
 
 import 'package:kaihatsudojo/const/dishList/popupButtonItem.dart';
-import 'package:kaihatsudojo/view/dishList/deleteDish.dart';
-import 'package:kaihatsudojo/view/dishList/updateDish.dart';
+import 'package:kaihatsudojo/view/pages/dishList/actions/deleteDish.dart';
+import 'package:kaihatsudojo/view/pages/dishList/actions/updateDish.dart';
 
 class ListPage extends ConsumerWidget {
   final String? genre;

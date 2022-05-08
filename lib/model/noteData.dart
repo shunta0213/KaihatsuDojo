@@ -46,7 +46,6 @@ void addNoteCheck({
       .doc(noteTitle);
 
   await ref.get().then((DocumentSnapshot document) {
-    print(document.exists);
     if (document.exists) {
       showNoteDoubleCheckDialog(
         ref: ref,
