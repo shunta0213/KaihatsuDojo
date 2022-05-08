@@ -219,9 +219,9 @@ class _AddDishesState extends State<AddDishes> {
         //勘違いしそう
         // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         // floatingActionButton: Container(
-        //   padding: const EdgeInsets.only(bottom: 10.0),
+        //   padding: const EdgeInsets.only(bottom: 50.0),
         //   child: FloatingActionButton(
-        //     child: const Icon(Icons.clear),
+        //     child: const Icon(Icons.check),
         //     onPressed: () => Navigator.of(context).pop(),
         //   ),
       ),

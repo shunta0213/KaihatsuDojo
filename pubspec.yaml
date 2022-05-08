@@ -81,6 +81,19 @@ flutter:
       - assets/images/logo_8.png
       - assets/images/appIcon.png
       - assets/images/topPageDeco.png
+      - assets/images/button.JPEG
+      - assets/images/checkbutton.JPEG
+      - assets/images/checkbutton2.JPEG
+      - assets/images/flutter_01.jpg
+      - assets/images/list.JPEG
+      - assets/images/orangebutton.JPEG
+      - assets/images/ジャンル.JPEG
+      - assets/images/メモ.JPEG
+      - assets/images/メモ2.JPEG
+      - assets/images/三本線.JPEG
+      - assets/images/三本線2.JPEG
+      - assets/images/検索.JPEG
+      - assets/images/選択.JPEG
 
   fonts:
     - family: NotoSansJP
