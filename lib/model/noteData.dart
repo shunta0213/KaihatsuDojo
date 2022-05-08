@@ -41,11 +41,12 @@ void addNoteCheck({
 }) async {
   final ref = FirebaseFirestore.instance
       .collection('Data')
-      .doc('Dishes')
+      .doc('note')
       .collection(uid)
       .doc(noteTitle);
 
   await ref.get().then((DocumentSnapshot document) {
+    print(document.exists);
     if (document.exists) {
       showNoteDoubleCheckDialog(
         ref: ref,
