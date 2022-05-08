@@ -96,6 +96,17 @@ class Guide extends StatelessWidget {
                       border: Border.all(width: 10, color: Colors.black26)),
                   child: Image.asset('assets/images/選択.JPEG')),
               const Text(
+                'アイコンはそれぞれ以下のジャンルを表しています',
+                style: TextStyle(height: 1.5),
+              ),
+              SizedBox(
+                height: 4,
+              ),
+              const Text(
+                '牛肉　　豚肉\n鶏肉　　魚類\n副菜　　汁物\n麺類　　その他 \n',
+                style: TextStyle(height: 1.5),
+              ),
+              const Text(
                   'すると、今までに自分が追加してきた料理名を閲覧でき、自分が作ったことのある料理を思い出すことができます。\n'),
               Container(
                   width: double.infinity,
