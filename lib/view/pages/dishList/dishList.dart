@@ -116,6 +116,7 @@ class ListPage extends ConsumerWidget {
                               return showEditDishDialog(
                                 context: context,
                                 document: document,
+                                uid: uid,
                               );
                           }
                         },
