@@ -17,7 +17,8 @@ void showNoteDoubleCheckDialog({
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            '$noteTitleはすでに存在します',
+            '\"$noteTitle\"は既に保存されていますが、上書きしますか?',
+            style: TextStyle(fontSize: 15),
           ),
           actions: <Widget>[
             MaterialButton(
@@ -26,10 +27,10 @@ void showNoteDoubleCheckDialog({
                 Navigator.of(context).pop();
               },
               child: const Text(
-                '更新',
+                '上書き',
                 style: TextStyle(
-                  color: Colors.redAccent,
-                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                  fontSize: 16,
                 ),
               ),
             ),
