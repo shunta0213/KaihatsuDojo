@@ -20,7 +20,7 @@ void showDishDoubleCheckDialog({
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            '\"$dishName\"はすでに保存されていますが、上書きしますか？',
+            '\"$dishName\"は既に保存されていますが、上書きしますか？',
             style: TextStyle(fontSize: 15),
           ),
           actions: <Widget>[
