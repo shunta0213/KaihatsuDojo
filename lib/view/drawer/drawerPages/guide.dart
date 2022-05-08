@@ -52,7 +52,7 @@ class Guide extends StatelessWidget {
                       border: Border.all(width: 10, color: Colors.black26)),
                   child: Image.asset('assets/images/button.JPEG')),
               const Text(
-                  "次に、追加したい料理が当てはまるジャンルを選び、メニュー名を入力し、その料理に関してメモをしたいことがあればメモを残すことができます。"),
+                  "次に、追加したい料理が当てはまるジャンルを選び、メニュー名を入力します。また、その料理に関してメモをしたいことがあればメモを残すことができます。"),
               Container(
                   margin: EdgeInsets.all(26),
                   decoration: BoxDecoration(
