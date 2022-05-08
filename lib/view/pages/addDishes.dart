@@ -51,7 +51,7 @@ class _AddDishesState extends State<AddDishes> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 0, bottom: 8),
-              width: 300,
+              width: 310,
               height: 61,
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -114,7 +114,7 @@ class _AddDishesState extends State<AddDishes> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 0, bottom: 28),
-              width: 300,
+              width: 310,
               height: 60,
               child: TextFormField(
                   decoration: InputDecoration(
@@ -146,7 +146,7 @@ class _AddDishesState extends State<AddDishes> {
             ),
             Container(
               margin: const EdgeInsets.only(
-                  left: 45, right: 45, bottom: 55, top: 2.5),
+                  left: 41, right: 41, bottom: 55, top: 2.5),
               child: TextFormField(
                   keyboardType: TextInputType.multiline,
                   maxLines: 7,
