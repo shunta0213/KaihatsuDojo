@@ -22,7 +22,7 @@ class MyDrawer extends Drawer {
             accountName: const UserName(),
             accountEmail: Text(
               user.email!,
-              style: TextStyle(color: Colors.black87, fontSize: 14),
+              style: const TextStyle(color: Colors.black87, fontSize: 14),
             ),
             currentAccountPicture: const CircleAvatar(
               backgroundColor: Color(0xFFFFF8E1),
@@ -48,22 +48,6 @@ class MyDrawer extends Drawer {
               Navigator.of(context).pop();
               Navigator.of(context).pushNamed('/note');
             },
-          ),
-          ListTile(
-            title: const Text(
-              "ぶたのちょきんばこ",
-              style: TextStyle(fontFamily: 'NotoSansJP'),
-            ),
-            subtitle: const Text(
-              "今月の食費",
-              style: TextStyle(fontFamily: 'NotoSansJP'),
-            ),
-            leading: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.savings),
-            ),
-            trailing: const Icon(Icons.arrow_forward),
-            onTap: () => {print("今月の食費を調べます")},
           ),
           ListTile(
             title: const Text(
@@ -128,6 +112,22 @@ class MyDrawer extends Drawer {
             ),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () => urlJump('https://www.orangepage.net/'),
+          ),
+          ListTile(
+            title: const Text(
+              "健康に関する記事",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            subtitle: const Text(
+              "ウェブサイトで見る",
+              style: TextStyle(fontFamily: 'NotoSansJP'),
+            ),
+            leading: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(Icons.article),
+            ),
+            trailing: const Icon(Icons.arrow_forward),
+            onTap: () => urlJump('https://www.lotte.co.jp/medipalette/'),
           ),
           ListTile(
             title: const Text(
