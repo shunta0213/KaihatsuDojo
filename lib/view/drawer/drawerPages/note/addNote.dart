@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:kaihatsudojo/const/drawer/drawerPageDecoration/decoration.dart';
 import 'package:kaihatsudojo/model/noteData.dart';
 
@@ -42,7 +41,7 @@ void showAddNoteDialog({
                             labelText: 'ノート',
                             border: AddNoteDecoration.inputBorder,
                           ),
-                          minLines: 7,
+                          minLines: 3,
                           maxLines: 7,
                           onChanged: (String? value) {
                             note = value;
