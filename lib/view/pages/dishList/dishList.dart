@@ -7,6 +7,7 @@ import 'package:kaihatsudojo/model/dishData.dart';
 
 import 'package:kaihatsudojo/const/dishList/popupButtonItem.dart';
 import 'package:kaihatsudojo/view/pages/dishList/actions/deleteDish.dart';
+import 'package:kaihatsudojo/view/pages/dishList/actions/editDish.dart';
 import 'package:kaihatsudojo/view/pages/dishList/actions/updateDishDate.dart';
 
 class ListPage extends ConsumerWidget {
@@ -111,6 +112,12 @@ class ListPage extends ConsumerWidget {
                                 uid: uid,
                                 document: document,
                               );
+                            case popupMenuItem.edit:
+                              return showEditDishDialog(
+                                context: context,
+                                document: document,
+                                uid: uid,
+                              );
                           }
                         },
                         itemBuilder: (BuildContext context) =>
@@ -129,6 +136,10 @@ class ListPage extends ConsumerWidget {
                               style: TextStyle(fontFamily: 'NotoSansJP'),
                             ),
                           ),
+                          const PopupMenuItem<popupMenuItem>(
+                            value: popupMenuItem.edit,
+                            child: Text('編集'),
+                          )
                         ],
                       ),
                       dense: true,
