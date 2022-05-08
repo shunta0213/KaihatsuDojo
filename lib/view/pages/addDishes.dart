@@ -198,12 +198,12 @@ class _AddDishesState extends State<AddDishes> {
               ),
               child: MaterialButton(
                 onPressed: () {
-                  addDishes(
+                  dishesDocCheck(
                     context: context,
                     uid: uid,
-                    dishName: food!,
-                    genre: isSelectedItem!,
-                    notes: message!,
+                    dishName: food,
+                    genre: isSelectedItem,
+                    notes: message,
                     now: now,
                   );
                 },

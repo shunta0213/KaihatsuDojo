@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/const/drawer/drawerPageDecoration/decoration.dart';
 import 'package:kaihatsudojo/model/noteData.dart';
 
-void showAddNoteDialog(
-    {required BuildContext context, required String uid}) async {
+void showAddNoteDialog({
+  required BuildContext context,
+  required String uid,
+}) async {
   String? note;
   String? noteTitle;
   showDialog(
@@ -61,7 +63,11 @@ void showAddNoteDialog(
                     style: TextStyle(color: Colors.blue, fontSize: 16),
                   ),
                   onPressed: () {
-                    addNote(noteTitle: noteTitle, note: note, uid: uid);
+                    addNoteCheck(
+                        context: context,
+                        noteTitle: noteTitle ?? '',
+                        note: note ?? '',
+                        uid: uid);
                     Navigator.of(context).pop();
                   },
                 ),

@@ -1,15 +1,56 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:kaihatsudojo/view/dishList/addDishDialog.dart';
+
+/// 料理追加前のドキュメントチェック
+
+void dishesDocCheck({
+  required BuildContext context,
+  required String uid,
+  required String? dishName,
+  required String? genre,
+  required String? notes,
+  required DateTime now,
+}) async {
+  final DocumentReference ref = FirebaseFirestore.instance
+      .collection('Data')
+      .doc('Dishes')
+      .collection(uid)
+      .doc(dishName);
+  await ref.get().then((DocumentSnapshot document) {
+    if (document.exists) {
+      showDishDoubleCheckDialog(
+        ref: ref,
+        context: context,
+        document: document,
+        uid: uid,
+        dishName: dishName,
+        genre: genre,
+        notes: notes,
+        now: now,
+      );
+    } else {
+      addDishes(
+        context: context,
+        uid: uid,
+        dishName: dishName,
+        genre: genre,
+        notes: notes,
+        now: now,
+      );
+    }
+  });
+}
 
 /// 料理を追加
 
 void addDishes({
   required BuildContext context,
   required uid,
-  required String dishName,
-  required String genre,
-  required String notes,
+  required String? dishName,
+  required String? genre,
+  required String? notes,
   required DateTime now,
 }) async {
   final FirebaseFirestore db = FirebaseFirestore.instance;
