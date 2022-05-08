@@ -42,8 +42,8 @@ void showAddNoteDialog({
                             labelText: 'ノート',
                             border: AddNoteDecoration.inputBorder,
                           ),
-                          minLines: 10,
-                          maxLines: 10,
+                          minLines: 7,
+                          maxLines: 7,
                           onChanged: (String? value) {
                             note = value;
                           },
