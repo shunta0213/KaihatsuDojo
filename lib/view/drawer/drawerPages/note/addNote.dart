@@ -56,7 +56,10 @@ void showAddNoteDialog(
                     onPressed: () => Navigator.of(context).pop(),
                     child: const Text('キャンセル')),
                 MaterialButton(
-                  child: const Text('追加'),
+                  child: const Text(
+                    '追加',
+                    style: TextStyle(color: Colors.blue, fontSize: 16),
+                  ),
                   onPressed: () {
                     addNote(noteTitle: noteTitle, note: note, uid: uid);
                     Navigator.of(context).pop();
