@@ -81,6 +81,15 @@ flutter:
       - assets/images/flutter_01.jpg
       - assets/images/orangebutton.JPEG
       - assets/images/button.JPEG
+      - assets/images/checkbutton2.JPEG
+      - assets/images/ジャンル.JPEG
+      - assets/images/list.JPEG
+      - assets/images/選択.JPEG
+      - assets/images/三本線2.JPEG
+      - assets/images/メモ2.JPEG
+      - assets/images/検索.JPEG
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
