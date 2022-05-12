@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaihatsudojo/view/drawer/drawer.dart';
 import 'package:kaihatsudojo/view/pages/topPage/date.dart';
@@ -69,18 +70,25 @@ class _TopPageState extends State<TopPage> {
         ),
       ),
       // BottomBar部分
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (int index) {
-          if (index == _currentIndex) {
-            null;
-          } else {
-            _currentIndex = index;
-            Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
-          }
-        },
-        items: barItem,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(22),
+          topRight: Radius.circular(22),
+        ),
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (int index) {
+            if (index == _currentIndex) {
+              null;
+            } else {
+              _currentIndex = index;
+              Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+            }
+          },
+          items: barItem,
+        ),
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         elevation: 3,

@@ -305,32 +305,38 @@ class _ViewPageState extends State<ViewPage> {
       ]),
 
       // BottomBar 部分
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (int index) {
-          if (_currentIndex == index) {
-            null;
-          } else {
-            _currentIndex = index;
-            Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
-          }
-        },
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              label: 'home',
-              icon: Icon(
-                Icons.home,
-                size: 30,
-                color: _currentIndexColor ? kFABButtonColor : Colors.grey,
-              )),
-          BottomNavigationBarItem(
-              label: 'list',
-              icon: Icon(
-                Icons.list_alt_rounded,
-                size: 30,
-                color: !_currentIndexColor ? kFABButtonColor : Colors.grey,
-              ))
-        ],
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(22),
+          topRight: Radius.circular(22),
+        ),
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (int index) {
+            if (_currentIndex == index) {
+              null;
+            } else {
+              _currentIndex = index;
+              Navigator.of(context).pushReplacementNamed(pages[_currentIndex]);
+            }
+          },
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                label: 'home',
+                icon: Icon(
+                  Icons.home,
+                  size: 30,
+                  color: _currentIndexColor ? kFABButtonColor : Colors.grey,
+                )),
+            BottomNavigationBarItem(
+                label: 'list',
+                icon: Icon(
+                  Icons.list_alt_rounded,
+                  size: 30,
+                  color: !_currentIndexColor ? kFABButtonColor : Colors.grey,
+                ))
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
