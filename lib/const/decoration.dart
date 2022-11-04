@@ -15,8 +15,8 @@ const kLoginGradation = BoxDecoration(
 );
 
 final kLoginCircle = Container(
-  margin: EdgeInsets.only(bottom: 16),
-  padding: EdgeInsets.all(10),
+  margin: const EdgeInsets.only(bottom: 16),
+  padding: const EdgeInsets.all(10),
   height: 150,
   width: 150,
   // foregroundDecoration: BoxDecoration(
@@ -30,7 +30,7 @@ final kLoginCircle = Container(
   ),
 
   decoration: BoxDecoration(
-    gradient: LinearGradient(
+    gradient: const LinearGradient(
         colors: [Color(0xFFFFF3ED), Color(0xFFFFE0B2)],
         begin: Alignment.topRight,
         end: Alignment.bottomCenter),
