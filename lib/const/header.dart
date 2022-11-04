@@ -10,14 +10,14 @@ class beauty_header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment(0.5, -1),
+      alignment: const Alignment(0.5, -1),
       child: ClipPath(
         clipper: MyClipper(),
         child: Container(
-          padding: EdgeInsets.only(left: 40, top: 50, right: 20),
+          padding: const EdgeInsets.only(left: 40, top: 50, right: 20),
           height: 290,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
